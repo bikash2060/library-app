@@ -699,7 +699,7 @@
                         </div>
                     </div>
                     <div class="image-cell">
-                        <img src="${pageContext.request.contextPath}/assets/book images/1984 book.jpg" alt="1984 Book" />
+                        <img src="${pageContext.request.contextPath}/assets/book%20images/1984%20book.jpg" alt="1984 Book" />
                     </div>
                 </div>
 
@@ -729,7 +729,7 @@
                         </div>
                     </div>
                     <div class="image-cell">
-                        <img src="${pageContext.request.contextPath}/assets/book images/Big Little Lies.jpg" alt="Big Little Lies Book" />
+                        <img src="${pageContext.request.contextPath}/assets/book%20images/Big%20Little%20Lies.jpg" alt="Big Little Lies Book" />
                     </div>
                 </div>
 
@@ -759,7 +759,7 @@
                         </div>
                     </div>
                     <div class="image-cell">
-                        <img src="${pageContext.request.contextPath}/assets/book images/Gone Girl.jpg" alt="Gone Girl Book" />
+                        <img src="${pageContext.request.contextPath}/assets/book%20images/Gone%20Girl.jpg" alt="Gone Girl Book" />
                     </div>
                 </div>
 
@@ -789,7 +789,7 @@
                         </div>
                     </div>
                     <div class="image-cell">
-                        <img src="${pageContext.request.contextPath}/assets/book images/The book thief.jpg" alt="The Book Thief Book" />
+                        <img src="${pageContext.request.contextPath}/assets/book%20images/The%20book%20thief.jpg" alt="The Book Thief Book" />
                     </div>
                 </div>
 
@@ -867,7 +867,7 @@
 
             <div class="col">
                 <div class="image-container">
-                    <img src="${pageContext.request.contextPath}/assets/book images/1984 book.jpg" alt="book-image">
+                    <img src="${pageContext.request.contextPath}/assets/book%20images/1984%20book.jpg" alt="book-image">
                 </div>
                 <div class="book-details">
                     <h2 class="book-name">1984</h2>
@@ -881,13 +881,13 @@
                 </div>
                 <div class="button-group">
                     <a href="#" class="btn add-to-cart">Add to Cart</a>
-                    <a href="${pageContext.request.contextPath}/bookDetails" class="btn view-details">View Details</a>
+                    <a href="${pageContext.request.contextPath}/book-details" class="btn view-details">View Details</a>
                 </div>
             </div>
 
             <div class="col">
                 <div class="image-container">
-                    <img src="${pageContext.request.contextPath}/assets/book images/1984 book.jpg" alt="book-image">
+                    <img src="${pageContext.request.contextPath}/assets/book%20images/1984%20book.jpg" alt="book-image">
                 </div>
                 <div class="book-details">
                     <h2 class="book-name">1984</h2>
@@ -901,13 +901,13 @@
                 </div>
                 <div class="button-group">
                     <a href="#" class="btn add-to-cart">Add to Cart</a>
-                    <a href="${pageContext.request.contextPath}/bookDetails" class="btn view-details">View Details</a>
+                    <a href="${pageContext.request.contextPath}/book-details" class="btn view-details">View Details</a>
                 </div>
             </div>
 
             <div class="col">
                 <div class="image-container">
-                    <img src="${pageContext.request.contextPath}/assets/book images/1984 book.jpg" alt="book-image">
+                    <img src="${pageContext.request.contextPath}/assets/book%20images/1984%20book.jpg" alt="book-image">
                 </div>
                 <div class="book-details">
                     <h2 class="book-name">1984</h2>
@@ -921,13 +921,13 @@
                 </div>
                 <div class="button-group">
                     <a href="#" class="btn add-to-cart">Add to Cart</a>
-                    <a href="${pageContext.request.contextPath}/bookDetails" class="btn view-details">View Details</a>
+                    <a href="${pageContext.request.contextPath}/book-details" class="btn view-details">View Details</a>
                 </div>
             </div>
 
             <div class="col">
                 <div class="image-container">
-                    <img src="${pageContext.request.contextPath}/assets/book images/1984 book.jpg" alt="book-image">
+                    <img src="${pageContext.request.contextPath}/assets/book%20images/1984%20book.jpg" alt="book-image">
                 </div>
                 <div class="book-details">
                     <h2 class="book-name">1984</h2>
@@ -941,7 +941,7 @@
                 </div>
                 <div class="button-group">
                     <a href="#" class="btn add-to-cart">Add to Cart</a>
-                    <a href="${pageContext.request.contextPath}/bookDetails" class="btn view-details">View Details</a>
+                    <a href="${pageContext.request.contextPath}/book-details" class="btn view-details">View Details</a>
                 </div>
             </div>
         </div>
@@ -950,7 +950,7 @@
 
             <div class="col">
                 <div class="image-container">
-                    <img src="${pageContext.request.contextPath}/assets/book images/1984 book.jpg" alt="book-image">
+                    <img src="${pageContext.request.contextPath}/assets/book%20images/1984%20book.jpg" alt="book-image">
                 </div>
                 <div class="book-details">
                     <h2 class="book-name">1984</h2>
@@ -964,13 +964,13 @@
                 </div>
                 <div class="button-group">
                     <a href="#" class="btn add-to-cart">Add to Cart</a>
-                    <a href="${pageContext.request.contextPath}/bookDetails" class="btn view-details">View Details</a>
+                    <a href="${pageContext.request.contextPath}/book-details" class="btn view-details">View Details</a>
                 </div>
             </div>
 
             <div class="col">
                 <div class="image-container">
-                    <img src="${pageContext.request.contextPath}/assets/book images/1984 book.jpg" alt="book-image">
+                    <img src="${pageContext.request.contextPath}/assets/book%20images/1984%20book.jpg" alt="book-image">
                 </div>
                 <div class="book-details">
                     <h2 class="book-name">1984</h2>
@@ -984,13 +984,13 @@
                 </div>
                 <div class="button-group">
                     <a href="#" class="btn add-to-cart">Add to Cart</a>
-                    <a href="${pageContext.request.contextPath}/bookDetails" class="btn view-details">View Details</a>
+                    <a href="${pageContext.request.contextPath}/book-details" class="btn view-details">View Details</a>
                 </div>
             </div>
 
             <div class="col">
                 <div class="image-container">
-                    <img src="${pageContext.request.contextPath}/assets/book images/1984 book.jpg" alt="book-image">
+                    <img src="${pageContext.request.contextPath}/assets/book%20images/1984%20book.jpg" alt="book-image">
                 </div>
                 <div class="book-details">
                     <h2 class="book-name">1984</h2>
@@ -1004,13 +1004,13 @@
                 </div>
                 <div class="button-group">
                     <a href="#" class="btn add-to-cart">Add to Cart</a>
-                    <a href="${pageContext.request.contextPath}/bookDetails" class="btn view-details">View Details</a>
+                    <a href="${pageContext.request.contextPath}/book-details" class="btn view-details">View Details</a>
                 </div>
             </div>
 
             <div class="col">
                 <div class="image-container">
-                    <img src="${pageContext.request.contextPath}/assets/book images/1984 book.jpg" alt="book-image">
+                    <img src="${pageContext.request.contextPath}/assets/book%20images/1984%20book.jpg" alt="book-image">
                 </div>
                 <div class="book-details">
                     <h2 class="book-name">1984</h2>
@@ -1024,7 +1024,7 @@
                 </div>
                 <div class="button-group">
                     <a href="#" class="btn add-to-cart">Add to Cart</a>
-                    <a href="${pageContext.request.contextPath}/bookDetails" class="btn view-details">View Details</a>
+                    <a href="${pageContext.request.contextPath}/book-details" class="btn view-details">View Details</a>
                 </div>
             </div>
 
@@ -1060,7 +1060,7 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur maxime dignissimos facilis tenetur fuga itaque obcaecati corporis, quo quis dolorum aliquid perferendis dolor. Odit corporis nulla officia beatae vitae maiores.
             </p>
             <div class="image-container">
-                <img src="${pageContext.request.contextPath}/assets/static images/customer1.png" alt="user" />
+                <img src="${pageContext.request.contextPath}/assets/static%20images/customer1.png" alt="user" />
             </div>
             <h5>Cristiano Ronaldo</h5>
             <h6>Professional Singer</h6>
@@ -1073,7 +1073,7 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus dolorem in porro sed quisquam at consectetur consequatur nihil iusto, voluptatum iste, mollitia corrupti. Fugit error accusantium eius, eligendi quas facilis!
             </p>
             <div class="image-container">
-                <img src="${pageContext.request.contextPath}/assets/static images/customer2.png" alt="user" />
+                <img src="${pageContext.request.contextPath}/assets/static%20images/customer2.png" alt="user" />
             </div>
             <h5>Robert Downey Jr</h5>
             <h6>Professional Writer</h6>
@@ -1086,7 +1086,7 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut quas veniam ipsa eligendi, nulla voluptates molestiae? Nemo modi odit laborum neque repellendus, distinctio omnis aliquam dolor et fuga, earum temporibus?
             </p>
             <div class="image-container">
-                <img src="${pageContext.request.contextPath}/assets/static images/customer3.png" alt="user" />
+                <img src="${pageContext.request.contextPath}/assets/static%20images/customer3.png" alt="user" />
             </div>
             <h5>Thanos</h5>
             <h6>Professional Dancer</h6>
