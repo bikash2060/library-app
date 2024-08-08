@@ -20,6 +20,6 @@ public class UserLogout extends HttpServlet {
         if (session != null) {
             session.invalidate();
         }
-        resp.sendRedirect(req.getContextPath() + StringUtils.HOME_PAGE);
+        resp.sendRedirect(req.getContextPath() + StringUtils.INDEX_SERVLET);
     }
 }
