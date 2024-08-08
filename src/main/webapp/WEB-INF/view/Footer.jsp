@@ -127,8 +127,8 @@
                 <ul>
                     <li><a href="#">FAQ</a></li>
                     <li><a href="#">Library Policy</a></li>
-                    <li><a href="#">Sign Up</a></li>
-                    <li><a href="#">Log In</a></li>
+                    <li><a href="${pageContext.request.contextPath}/signup">Sign Up</a></li>
+                    <li><a href="${pageContext.request.contextPath}/login">Log In</a></li>
                 </ul>
             </div>
             <div class="footer-col">
