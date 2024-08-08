@@ -181,7 +181,7 @@
             <span class="close-btn" onclick="this.parentElement.style.display='none';"><i class="fa-solid fa-x"></i></span>
         </div>
         <%
-            session.removeAttribute("successMessage");
+            session.removeAttribute(StringUtils.SUCCESS_MESSAGE_KEY);
         %>
         <% } %>
         <h2>Log In</h2>
