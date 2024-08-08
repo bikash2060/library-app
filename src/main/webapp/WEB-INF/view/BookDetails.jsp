@@ -214,7 +214,7 @@
 <!-- Shop More Section -->
 <div class="shop-more">
     <div class="container">
-        <a href="${pageContext.request.contextPath}/index" class="buy-more"> &#8592; Eplore More</a>
+        <a href="${pageContext.request.contextPath}/home" class="buy-more"> &#8592; Eplore More</a>
     </div>
 </div>
 

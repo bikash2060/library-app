@@ -93,7 +93,7 @@ public class UserSignUp extends HttpServlet {
         switch (result){
             case 1:
                 req.getSession().setAttribute(StringUtils.SUCCESS_MESSAGE_KEY, StringUtils.USER_SUCCESS_REGISTER_MESSAGE);
-                req.getRequestDispatcher(StringUtils.LOGIN_PAGE).forward(req, resp);
+                resp.sendRedirect(req.getContextPath() + StringUtils.LOGIN_SERVLET);
                 break;
 
             case 0:
