@@ -271,8 +271,8 @@
 <div class="navigation-bar">
     <div class="container">
         <div class="logo-section">
-            <a href="${pageContext.request.contextPath}/index">
-                <img src="${pageContext.request.contextPath}/assets/static images/logo.png" alt="company-logo" class="company-logo">
+            <a href="${pageContext.request.contextPath}/home">
+                <img src="${pageContext.request.contextPath}/assets/static%20images/logo.png" alt="company-logo" class="company-logo">
                 <span class="company-name">BookEz</span>
             </a>
         </div>
