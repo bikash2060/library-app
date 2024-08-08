@@ -84,16 +84,19 @@
         }
 
         .navigation-bar{
-            background-color: #24262b;
+            width: 100%;
+            height: auto;
+            background: #24262b;
         }
 
-        .navigation-bar .container{
+        nav{
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            position: relative;
         }
 
-        /* Styling for Logo Section */
         .container .logo-section a{
             display: flex;
             align-items: center;
@@ -113,36 +116,37 @@
             margin-left: 5px;
         }
 
-        /* Styling for Search Bar Section */
-        .navigation-bar .search-container {
+        .search-container {
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 10px;
+            margin-left: 145px;
         }
 
-        .navigation-bar .search-wrapper {
+        .search-wrapper {
             position: relative;
             width: 100%;
             max-width: 700px;
         }
 
-        .navigation-bar .search-bar {
+        .search-bar {
             font-size: 16px;
-            width: 500px;
-            padding: 10px 40px 10px 10px;
+            width: 400px;
+            padding: 10px;
+            padding-right: 40px;
             border-radius: 25px;
             box-sizing: border-box;
             border: none;
             outline: none;
         }
 
-        .navigation-bar .search-bar::placeholder {
+        .search-bar::placeholder {
             color: #888;
             font-size: 16px;
         }
 
-        .navigation-bar .search-button {
+        .search-button {
             position: absolute;
             top: 50%;
             right: 10px;
@@ -153,24 +157,39 @@
             padding: 10px;
         }
 
-        .navigation-bar .search-button i {
+        .search-button i {
             color: #333;
             font-size: 16px;
         }
 
-        .navigation-bar .search-bar:focus {
+        .search-bar:focus {
             outline: none;
             border-color: #8AAAE5;
         }
 
-        /* Styling for Right Nav Links Section */
-        .nav-links ul li{
-            display: inline;
+        .user-pic{
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-left: 10px;
+            border: 1px solid #fff;
+        }
+
+        nav ul{
+            width: 100%;
+            text-align: right;
+            line-height: 2;
+        }
+
+        nav ul li{
+            display: inline-block;
             list-style: none;
             margin: 0 8px;
         }
 
-        .nav-links ul li a{
+        nav ul li a{
             text-decoration: none;
             color: white;
             font-size: 18px;
@@ -178,24 +197,106 @@
             transition: 0.3s ease;
         }
 
-        .nav-links ul li #login-section i{
+        nav ul li #login-section i{
             margin-right: 10px;
         }
 
-        .nav-links ul li #logout-section i{
-            margin-right: 10px;
+        nav ul li #cart-section{
+            line-height: 1;
         }
 
-        .nav-links ul li #cart-section i{
+        nav ul li #cart-section i{
+            margin-top: 10px;
             font-size: 22px;
+            align-items: center;
         }
 
         #login-section:hover,
-        #logout-section:hover,
         #signup-section:hover,
         #cart-section:hover {
             background: rgba(50, 75, 122, 0.5);
             border-radius: 10px;
+        }
+
+        .sub-menu-wrap{
+            position: absolute;
+            top: 83%;
+            right: 1%;
+            width: 300px;
+            max-height: 0;
+            z-index: 10;
+            overflow: hidden;
+            transition: max-height 0.5s;
+        }
+
+        .sub-menu-wrap.open-menu{
+            max-height: 400px;
+        }
+
+        .sub-menu{
+            background: #b3b2b2;
+            padding: 20px;
+            margin: 20px 0 0;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        .user-info{
+            display: flex;
+            align-items: center;
+        }
+
+        .user-info h3{
+            font-weight: 500;
+        }
+
+        .user-info img{
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .sub-menu hr{
+            border: 0;
+            height: 1px;
+            width: 100%;
+            background: #ccc;
+            margin: 15px 0 10px;
+        }
+
+        .sub-menu-link{
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #525252;
+            margin: 12px 0;
+        }
+
+        .sub-menu-link p{
+            width: 100%;
+        }
+
+        .sub-menu-link i{
+            width: 40px;
+            background: #e5e5e5;
+            border-radius: 50%;
+            padding: 8px;
+            margin-right: 15px;
+            text-align: center;
+        }
+
+        .sub-menu-link span{
+            font-size: 22px;
+            transition: transform 0.5s;
+        }
+
+        .sub-menu-link:hover span{
+            transform: translateX(5px);
+        }
+
+        .sub-menu-link:hover p{
+            font-weight: 600;
         }
 
         .login-message {
@@ -270,36 +371,26 @@
 
 <div class="navigation-bar">
     <div class="container">
-        <div class="logo-section">
-            <a href="${pageContext.request.contextPath}/home">
-                <img src="${pageContext.request.contextPath}/assets/static%20images/logo.png" alt="company-logo" class="company-logo">
-                <span class="company-name">BookEz</span>
-            </a>
-        </div>
-        <div class="search-container">
-            <form>
-                <div class="search-wrapper">
-                    <label>
+        <nav>
+            <div class="logo-section">
+                <a href="${pageContext.request.contextPath}/home">
+                    <img src="${pageContext.request.contextPath}/assets/static images/logo.png" alt="company-logo" class="company-logo">
+                    <span class="company-name">BookEz</span>
+                </a>
+            </div>
+            <div class="search-container">
+                <form>
+                    <div class="search-wrapper">
                         <input type="text" placeholder="Search" class="search-bar">
-                    </label>
-                    <button class="search-button">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                </div>
-            </form>
-        </div>
-        <div class="nav-links">
-            <nav>
-                <ul>
-                    <%-- Check whether the user is logged in or not --%>
-                    <% if (user != null) { %>
-                    <li>
-                        <a href="${pageContext.request.contextPath}/logout" id="logout-section">
-                            <i class="fa-regular fa-user"></i>
-                            <span>Logout</span>
-                        </a>
-                    </li>
-                    <% } else {%>
+                        <button class="search-button">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <ul>
+                <%-- Checking whether user is logged in or not --%>
+                <% if(user == null){%>
                     <li>
                         <a href="${pageContext.request.contextPath}/login" id="login-section">
                             <i class="fa-regular fa-user"></i>
@@ -310,18 +401,43 @@
                         <span style="color: white;">|</span>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/signup" id="signup-section">Sign Up</a>
+                        <a href="${pageContext.request.contextPath}/signup" id="signup-section">Sing Up</a>
                     </li>
-                    <% } %>
-                    <li>
-                        <a href="" id="cart-section">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+                <%}%>
+                <li>
+                    <a href="" id="cart-section">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <%-- Checking whether user is logged in or not --%>
+            <%if(user != null){%>
+                <img src="${pageContext.request.contextPath}/assets/static images/customer1.png" class="user-pic" onclick="toggleMenu(0)" alt="user-pic">
+            <%}%>
+
+            <div class="sub-menu-wrap" id="sub-menu">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <img src="${pageContext.request.contextPath}/assets/static images/customer1.png" alt="user-pic">
+                        <h3>Bikash Bhatttarai</h3>
+                    </div>
+                    <hr>
+                    <a href="" class="sub-menu-link">
+                        <i class="fa-solid fa-user"></i>
+                        <p>Edit Profile</p>
+                        <span>></span>
+                    </a>
+                    <a href="${pageContext.request.contextPath}/logout" class="sub-menu-link">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <p>Logout</p>
+                        <span>></span>
+                    </a>
+                </div>
+            </div>
+        </nav>
     </div>
 </div>
+<script src="${pageContext.request.contextPath}/js/ToggleMenu.js"></script>
 </body>
 </html>
