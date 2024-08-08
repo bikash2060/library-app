@@ -30,14 +30,18 @@ public class StringUtils {
     public static final String SIGNUP_SERVLET = "/signup";
     public static final String LOGIN_SERVLET = "/login";
     public static final String LOGOUT_SERVLET = "/logout";
-    public static final String INDEX_SERVLET = "/index";
-    public static final String BOOK_DETAILS_SERVLET = "/bookDetails";
+    public static final String INDEX_SERVLET = "/home";
+    public static final String BOOK_DETAILS_SERVLET = "/book-details";
 
     // JSP Route
-    public static final String LOGIN_PAGE = "/view/Login.jsp";
-    public static final String SIGN_UP_PAGE = "/view/SignUp.jsp";
-    public static final String HOME_PAGE = "/Index.jsp";
-    public static final String BOOK_DETAILS_PAGE = "/view/BookDetails.jsp";
+    public static final String INDEX_PAGE = "/WEB-INF/Index.jsp";
+    public static final String LOGIN_PAGE = "/WEB-INF/view/Login.jsp";
+    public static final String SIGN_UP_PAGE = "/WEB-INF/view/SignUp.jsp";
+    public static final String BOOK_DETAILS_PAGE = "/WEB-INF/view/BookDetails.jsp";
+    public static final String CART_DETAILS_PAGE = "/WEB-INF/view/CartDetails.jsp";
+    public static final String CHECKOUT_PAGE = "/WEB-INF/view/Checkout.jsp";
+    public static final String INVOICE_PAGE = "/WEB-INF/view/Invoice.jsp";
+    public static final String USER_PROFILE_PAGE = "/WEB-INF/view/UserProfile.jsp";
 
     // Error Message Key - Global
     public static final String ERROR_MESSAGE_KEY = "errorMessage";
