@@ -19,7 +19,7 @@ public class IndexPage extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher(StringUtils.HOME_PAGE).forward(req, resp);
+        req.getRequestDispatcher(StringUtils.INDEX_PAGE).forward(req, resp);
     }
 
 }
