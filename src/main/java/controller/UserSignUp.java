@@ -23,9 +23,7 @@ public class UserSignUp extends HttpServlet {
         super.init();
         try {
             this.userDao = new UserDao();
-            System.out.println("UserDao initialized successfully.");
         } catch (SQLException | ClassNotFoundException e) {
-            System.out.println("UserDao initialization failed.");
             e.printStackTrace();
         }
     }
@@ -95,7 +93,7 @@ public class UserSignUp extends HttpServlet {
         switch (result){
             case 1:
                 req.getSession().setAttribute(StringUtils.SUCCESS_MESSAGE_KEY, StringUtils.USER_SUCCESS_REGISTER_MESSAGE);
-                req.getRequestDispatcher(StringUtils.LOGIN_SERVLET).forward(req, resp);
+                req.getRequestDispatcher(StringUtils.LOGIN_PAGE).forward(req, resp);
                 break;
 
             case 0:

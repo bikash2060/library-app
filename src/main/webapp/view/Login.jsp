@@ -212,12 +212,12 @@
     </div>
 </div>
 
-<%@ include file="Footer.jsp"%>
 <script src="${pageContext.request.contextPath}/js/FormValidation.js"></script>
 <script>
     function hideMessage(element) {
         element.parentNode.style.display = "none";
     }
 </script>
+<%@ include file="Footer.jsp"%>
 </body>
 </html>
