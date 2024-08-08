@@ -314,7 +314,7 @@
                     </li>
                     <% } %>
                     <li>
-                        <a href="#" id="cart-section">
+                        <a href="" id="cart-section">
                             <i class="fa-solid fa-cart-shopping"></i>
                         </a>
                     </li>
