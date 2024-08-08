@@ -695,7 +695,7 @@
                             <span class="status">In Stock</span>
                         </p>
                         <div class="button-group">
-                            <a href="#" class="btn add-to-cart">Add to Cart</a>
+                            <a href="" class="btn add-to-cart">Add to Cart</a>
                         </div>
                     </div>
                     <div class="image-cell">
@@ -725,7 +725,7 @@
                             <span class="status">In Stock</span>
                         </p>
                         <div class="button-group">
-                            <a href="#" class="btn add-to-cart">Add to Cart</a>
+                            <a href="" class="btn add-to-cart">Add to Cart</a>
                         </div>
                     </div>
                     <div class="image-cell">
@@ -755,7 +755,7 @@
                             <span class="status">In Stock</span>
                         </p>
                         <div class="button-group">
-                            <a href="#" class="btn add-to-cart">Add to Cart</a>
+                            <a href="" class="btn add-to-cart">Add to Cart</a>
                         </div>
                     </div>
                     <div class="image-cell">
@@ -785,7 +785,7 @@
                             <span class="status">In Stock</span>
                         </p>
                         <div class="button-group">
-                            <a href="#" class="btn add-to-cart">Add to Cart</a>
+                            <a href="" class="btn add-to-cart">Add to Cart</a>
                         </div>
                     </div>
                     <div class="image-cell">
@@ -880,7 +880,7 @@
                     </p>
                 </div>
                 <div class="button-group">
-                    <a href="#" class="btn add-to-cart">Add to Cart</a>
+                    <a href="" class="btn add-to-cart">Add to Cart</a>
                     <a href="${pageContext.request.contextPath}/book-details" class="btn view-details">View Details</a>
                 </div>
             </div>
@@ -900,7 +900,7 @@
                     </p>
                 </div>
                 <div class="button-group">
-                    <a href="#" class="btn add-to-cart">Add to Cart</a>
+                    <a href="" class="btn add-to-cart">Add to Cart</a>
                     <a href="${pageContext.request.contextPath}/book-details" class="btn view-details">View Details</a>
                 </div>
             </div>
@@ -920,7 +920,7 @@
                     </p>
                 </div>
                 <div class="button-group">
-                    <a href="#" class="btn add-to-cart">Add to Cart</a>
+                    <a href="" class="btn add-to-cart">Add to Cart</a>
                     <a href="${pageContext.request.contextPath}/book-details" class="btn view-details">View Details</a>
                 </div>
             </div>
@@ -940,7 +940,7 @@
                     </p>
                 </div>
                 <div class="button-group">
-                    <a href="#" class="btn add-to-cart">Add to Cart</a>
+                    <a href="" class="btn add-to-cart">Add to Cart</a>
                     <a href="${pageContext.request.contextPath}/book-details" class="btn view-details">View Details</a>
                 </div>
             </div>
@@ -963,7 +963,7 @@
                     </p>
                 </div>
                 <div class="button-group">
-                    <a href="#" class="btn add-to-cart">Add to Cart</a>
+                    <a href="" class="btn add-to-cart">Add to Cart</a>
                     <a href="${pageContext.request.contextPath}/book-details" class="btn view-details">View Details</a>
                 </div>
             </div>
@@ -983,7 +983,7 @@
                     </p>
                 </div>
                 <div class="button-group">
-                    <a href="#" class="btn add-to-cart">Add to Cart</a>
+                    <a href="" class="btn add-to-cart">Add to Cart</a>
                     <a href="${pageContext.request.contextPath}/book-details" class="btn view-details">View Details</a>
                 </div>
             </div>
@@ -1003,7 +1003,7 @@
                     </p>
                 </div>
                 <div class="button-group">
-                    <a href="#" class="btn add-to-cart">Add to Cart</a>
+                    <a href="" class="btn add-to-cart">Add to Cart</a>
                     <a href="${pageContext.request.contextPath}/book-details" class="btn view-details">View Details</a>
                 </div>
             </div>
@@ -1023,7 +1023,7 @@
                     </p>
                 </div>
                 <div class="button-group">
-                    <a href="#" class="btn add-to-cart">Add to Cart</a>
+                    <a href="" class="btn add-to-cart">Add to Cart</a>
                     <a href="${pageContext.request.contextPath}/book-details" class="btn view-details">View Details</a>
                 </div>
             </div>
