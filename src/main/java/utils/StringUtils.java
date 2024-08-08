@@ -33,6 +33,7 @@ public class StringUtils {
     public static final String LOGOUT_SERVLET = "/logout";
     public static final String INDEX_SERVLET = "/home";
     public static final String BOOK_DETAILS_SERVLET = "/book-details";
+    public static final String USER_PROFILE_DETAILS_SERVLET = "/my-profile";
 
     // JSP Route
     public static final String INDEX_PAGE = "/WEB-INF/Index.jsp";

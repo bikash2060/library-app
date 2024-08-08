@@ -422,7 +422,7 @@
                         <h3><%= user.getFirstName()+" "+user.getLastName()%></h3>
                     </div>
                     <hr>
-                    <a href="" class="sub-menu-link">
+                    <a href="${pageContext.request.contextPath}/my-profile" class="sub-menu-link">
                         <i class="fa-solid fa-user"></i>
                         <p>Edit Profile</p>
                         <span>></span>
