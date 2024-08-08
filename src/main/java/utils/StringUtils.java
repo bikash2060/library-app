@@ -25,6 +25,7 @@ public class StringUtils {
     public static final String GET_USER_BY_USERNAME = "SELECT * FROM user WHERE Username = ?";
     public static final String INSERT_USER = "INSERT INTO user (FirstName, LastName, EmailAddress, Password, PhoneNumber, Username) VALUES" +
             "(?,?,?,?,?,?)";
+    public static final String GET_USER_AL_INFO = "SELECT * FROM user WHERE Username = ?";
 
     // Servlets Mapping
     public static final String SIGNUP_SERVLET = "/signup";

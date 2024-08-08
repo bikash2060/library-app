@@ -13,6 +13,8 @@ public class User implements Serializable {
     private String phoneNumber;
     private String username;
 
+    public User(){}
+
     // Constructor: Login
     public User(String username, String password){
         this.username = username;

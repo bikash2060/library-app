@@ -414,13 +414,12 @@
             <%-- Checking whether user is logged in or not --%>
             <%if(user != null){%>
                 <img src="${pageContext.request.contextPath}/assets/static images/customer1.png" class="user-pic" onclick="toggleMenu(0)" alt="user-pic">
-            <%}%>
 
             <div class="sub-menu-wrap" id="sub-menu">
                 <div class="sub-menu">
                     <div class="user-info">
                         <img src="${pageContext.request.contextPath}/assets/static images/customer1.png" alt="user-pic">
-                        <h3>Bikash Bhatttarai</h3>
+                        <h3><%= user.getFirstName()+" "+user.getLastName()%></h3>
                     </div>
                     <hr>
                     <a href="" class="sub-menu-link">
@@ -435,6 +434,7 @@
                     </a>
                 </div>
             </div>
+            <%}%>
         </nav>
     </div>
 </div>

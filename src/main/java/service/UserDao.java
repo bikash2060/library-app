@@ -64,7 +64,7 @@ public class UserDao {
     /*
      * This method is used to check if a given username exists in the database.
      * @return true if existed otherwise false.
-     */
+    */
     public boolean checkUsername(String username){
         boolean result = false;
         try{
@@ -166,4 +166,35 @@ public class UserDao {
         }
     }
 
+    /*
+     * This method retrieves all user information from the database based on the provided username.
+     * It returns a User model object containing the user information if the username is found in the database.
+     * Otherwise, it returns null.
+     */
+    public User getAllUserInfo(String username){
+
+        try{
+            Connection con = DatabaseConnection.getDatabaseConnection();
+            PreparedStatement ps = con.prepareStatement(StringUtils.GET_USER_AL_INFO);
+            ps.setString(1, username);
+
+            ResultSet rs = ps.executeQuery();
+
+            User userInfo = new User();
+
+            while(rs.next()) {
+                userInfo.setFirstName(rs.getString("FirstName"));
+                userInfo.setLastName(rs.getString("LastName"));
+                userInfo.setEmailAddress(rs.getString("EmailAddress"));
+                userInfo.setPassword(rs.getString("Password"));
+                userInfo.setPhoneNumber(rs.getString("PhoneNumber"));
+                userInfo.setUsername(rs.getString("Username"));
+            }
+            return userInfo;
+        }
+        catch(SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
