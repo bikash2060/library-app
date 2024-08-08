@@ -1,4 +1,4 @@
-package org.bookez.utils;
+package utils;
 
 public class SignUpValidation {
 

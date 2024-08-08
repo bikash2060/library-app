@@ -1,5 +1,5 @@
-<%@ page import="org.bookez.model.User" %>
-<%@ page import="org.bookez.utils.StringUtils" %>
+<%@ page import="model.User" %>
+<%@ page import="utils.StringUtils" %>
 <%@ page contentType="text/html;charset=UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">

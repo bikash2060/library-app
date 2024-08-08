@@ -1,4 +1,4 @@
-package org.bookez.model;
+package model;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package org.bookez.controller;
+package controller;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -6,9 +6,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import org.bookez.model.User;
-import org.bookez.service.UserDao;
-import org.bookez.utils.StringUtils;
+import model.User;
+import service.UserDao;
+import utils.StringUtils;
 
 import java.io.IOException;
 import java.sql.SQLException;

@@ -1,8 +1,8 @@
-package org.bookez.service;
+package service;
 
-import org.bookez.model.User;
-import org.bookez.utils.DatabaseConnection;
-import org.bookez.utils.StringUtils;
+import model.User;
+import utils.DatabaseConnection;
+import utils.StringUtils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

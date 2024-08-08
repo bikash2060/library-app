@@ -1,4 +1,4 @@
-<%@ page import="org.bookez.utils.StringUtils" %>
+<%@ page import="utils.StringUtils" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
