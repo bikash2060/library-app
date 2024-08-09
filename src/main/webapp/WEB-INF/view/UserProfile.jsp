@@ -127,6 +127,7 @@
         }
 
         #username{
+            margin-left: 10px;
             text-transform: capitalize;
         }
 
@@ -275,10 +276,71 @@
             position: relative;
             z-index: 1;
         }
+
+        /* Styling Error Message */
+        .message-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            padding: 10px;
+            width: 400px;
+            border-radius: 5px;
+            margin: 10px auto -17px;
+        }
+
+        .message-container.err{
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .message-container.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message-container p {
+            margin: 0;
+        }
+
+        .message-container .close-btn {
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+
+        .close-btn i {
+            color: inherit;
+        }
+
     </style>
 </head>
 <body>
 <%@ include file="Header.jsp" %>
+
+<%-- Error Message Section --%>
+<% String errorMessage = (String) request.getAttribute(StringUtils.ERROR_MESSAGE_KEY);
+    if (errorMessage != null && !errorMessage.isEmpty()) { %>
+<div class="message-container err">
+    <p><%= errorMessage %></p>
+    <span class="close-btn" onclick="this.parentElement.style.display='none';"><i class="fa-solid fa-x"></i></span>
+</div>
+<% } %>
+
+<%-- Success Message Section --%>
+<% String successMessage = (String) session.getAttribute(StringUtils.SUCCESS_MESSAGE_KEY);
+    if (successMessage != null && !successMessage.isEmpty()) { %>
+<div class="message-container success">
+    <span><%= successMessage %></span>
+    <span class="close-btn" onclick="this.parentElement.style.display='none';"><i class="fa-solid fa-x"></i></span>
+</div>
+<%
+    session.removeAttribute(StringUtils.SUCCESS_MESSAGE_KEY);
+%>
+<% } %>
 
 <!-- User Profile Section -->
 <div class="user-profile">
@@ -310,57 +372,57 @@
                 <!-- User's Basic Information Section -->
                 <div id="basic-info" class="content-section active">
                     <div class="form">
-                        <form>
-                            <% if(user != null){%>
-                            <div class="row">
-                                <div id="user">
+                        <% if(user != null){%>
+                            <form action="${pageContext.request.contextPath}/my-profile-update" method="post">
+                                <div class="row">
+                                    <div id="user">
 
-                                    <% if(user.getUserImage() == null || user.getUsername().isEmpty()) {%>
-                                        <img src="${pageContext.request.contextPath}/assets/static images/default-profile-picture.png" alt="user-pic" class="user-pic">
-                                    <%} else {%>
-                                        <img src="${pageContext.request.contextPath}/assets/user profile images/customer1.png" alt="user-pic" class="user-pic">
-                                    <%}%>
+                                        <% if(user.getUserImage() == null || user.getUsername().isEmpty()) {%>
+                                            <img src="${pageContext.request.contextPath}/assets/static images/default-profile-picture.png" alt="user-pic" class="user-pic">
+                                        <%} else {%>
+                                            <img src="${pageContext.request.contextPath}/assets/user profile images/customer1.png" alt="user-pic" class="user-pic">
+                                        <%}%>
 
-                                    <input type="file" name="image" id="image">
-                                    <label for="image" id="upload-btn"><i class="fa-solid fa-camera"></i></label>
+                                        <input type="file" name="image" id="image">
+                                        <label for="image" id="upload-btn"><i class="fa-solid fa-camera"></i></label>
+                                    </div>
+                                    <div id="username">
+                                        <h2><%= user.getFirstName()+" "+user.getLastName()%></h2>
+                                    </div>
                                 </div>
-                                <div id="username">
-                                    <h2><%= user.getFirstName()+" "+user.getLastName()%></h2>
+
+                                <div class="input-name">
+                                    <i class="fa-solid fa-user lock"></i>
+                                    <input type="text" placeholder="First Name" class="fname" name="firstName" value="<%= (request.getParameter("firstName") != null) ? request.getParameter("firstName") : user.getFirstName() %>">
                                 </div>
-                            </div>
 
-                            <div class="input-name">
-                                <i class="fa-solid fa-user lock"></i>
-                                <input type="text" placeholder="First Name" class="fname" name="firstName" value="<%= (request.getParameter("firstName") != null) ? request.getParameter("firstName") : user.getFirstName() %>">
-                            </div>
+                                <div class="input-name">
+                                    <i class="fa-solid fa-user lock"></i>
+                                    <input type="text" placeholder="Last Name" class="fname" name="lastName" value="<%= (request.getParameter("lastName") != null) ? request.getParameter("lastName") : user.getLastName() %>">
+                                </div>
 
-                            <div class="input-name">
-                                <i class="fa-solid fa-user lock"></i>
-                                <input type="text" placeholder="Last Name" class="fname" name="lastName" value="<%= (request.getParameter("lastName") != null) ? request.getParameter("lastName") : user.getLastName() %>">
-                            </div>
+                                <div class="input-name">
+                                    <i class="fa-solid fa-envelope envelope"></i>
+                                    <input type="text" placeholder="Email" class="email" name="emailAddress" value="<%= (request.getParameter("emailAddress") != null) ? request.getParameter("emailAddress") : user.getEmailAddress() %>">
 
-                            <div class="input-name">
-                                <i class="fa-solid fa-envelope envelope"></i>
-                                <input type="text" placeholder="Email" class="email" name="emailAddress" value="<%= (request.getParameter("emailAddress") != null) ? request.getParameter("emailAddress") : user.getEmailAddress() %>">
+                                </div>
 
-                            </div>
+                                <div class="input-name">
+                                    <i class="fa-solid fa-phone phoneNumber"></i>
+                                    <input type="text" placeholder="Phone Number" class="number" name="phoneNumber" value="<%= (request.getParameter("phoneNumber") != null) ? request.getParameter("phoneNumber") : user.getPhoneNumber() %>">
+                                </div>
 
-                            <div class="input-name">
-                                <i class="fa-solid fa-phone phoneNumber"></i>
-                                <input type="text" placeholder="Phone Number" class="number" name="phoneNumber" value="<%= (request.getParameter("phoneNumber") != null) ? request.getParameter("phoneNumber") : user.getPhoneNumber() %>">
-                            </div>
+                                <div class="input-name">
+                                    <i class="fa-solid fa-user phoneNumber"></i>
+                                    <input type="text" placeholder="Username" class="username" name="username" value="<%= (request.getParameter("username") != null) ? request.getParameter("username") : user.getUsername() %>">
+                                </div>
 
-                            <div class="input-name">
-                                <i class="fa-solid fa-user phoneNumber"></i>
-                                <input type="text" placeholder="Username" class="username" name="username" value="<%= (request.getParameter("username") != null) ? request.getParameter("username") : user.getUsername() %>">
-                            </div>
-
-                            <div class="input-name">
-                                <input type="hidden" name="userID" value="<%= user.getUserID()%>">
-                            <%}%>
-                                <input type="submit" class="btn" value="Save">
-                            </div>
-                        </form>
+                                <div class="input-name">
+                                    <input type="hidden" name="userID" value="<%= user.getUserID()%>">
+                                    <input type="submit" class="btn" value="Save">
+                                </div>
+                            </form>
+                        <%}%>
                     </div>
                 </div>
 
