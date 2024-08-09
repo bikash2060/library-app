@@ -173,7 +173,7 @@
             border-radius: 50%;
             cursor: pointer;
             margin-left: 10px;
-            border: 1px solid #fff;
+            box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.1);
         }
 
         nav ul{
@@ -254,7 +254,6 @@
             object-fit: contain;
             border-radius: 50%;
             margin-right: 15px;
-            border: 1px solid #fff;
         }
 
         .sub-menu hr{
