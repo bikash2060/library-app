@@ -354,9 +354,10 @@
                                 <i class="fa-solid fa-user phoneNumber"></i>
                                 <input type="text" placeholder="Username" class="username" name="username" value="<%= (request.getParameter("username") != null) ? request.getParameter("username") : user.getUsername() %>">
                             </div>
-                            <%}%>
+
                             <div class="input-name">
-                                <input type="hidden" name="userID" value="<%= user != null ? user.getUserID() : 0%>">
+                                <input type="hidden" name="userID" value="<%= user.getUserID()%>">
+                            <%}%>
                                 <input type="submit" class="btn" value="Save">
                             </div>
                         </form>
