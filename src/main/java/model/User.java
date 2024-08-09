@@ -12,6 +12,7 @@ public class User implements Serializable {
     private String password;
     private String phoneNumber;
     private String username;
+    private String userImage;
 
     public User(){}
 
@@ -79,4 +80,8 @@ public class User implements Serializable {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    public String getUserImage() {return userImage;}
+
+    public void setUserImage(String userImage) { this.userImage = userImage; }
 }

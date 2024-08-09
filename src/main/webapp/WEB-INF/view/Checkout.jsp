@@ -309,7 +309,7 @@
         <div class="title">
             <h3>Order Summary</h3>
             <div class="user-details">
-                <img src="${pageContext.request.contextPath}/assets/static%20images/customer1.png" alt="user-pic" class="user-pic">
+                <img src="${pageContext.request.contextPath}/assets/user%20profile%20images/customer1.png" alt="user-pic" class="user-pic">
                 <p>Bikash<br> Bhattarai</p>
             </div>
         </div>

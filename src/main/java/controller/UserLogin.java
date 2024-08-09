@@ -47,9 +47,9 @@ public class UserLogin extends HttpServlet {
         switch (result){
             case 1:
                 HttpSession session = req.getSession();
-                session.setMaxInactiveInterval(300);
-                session.setAttribute(StringUtils.USER_OBJECT, userDao.getAllUserInfo(username));
+                session.setAttribute(StringUtils.USER_OBJECT, userDao.getUserByUsername(username));
                 session.setAttribute(StringUtils.SUCCESS_LOGIN_MESSAGE_KEY, StringUtils.USER_SUCCESS_LOGIN_MESSAGE);
+                session.setMaxInactiveInterval(300);
                 resp.sendRedirect(req.getContextPath() + StringUtils.INDEX_SERVLET);
                 break;
 

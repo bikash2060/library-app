@@ -1060,7 +1060,7 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur maxime dignissimos facilis tenetur fuga itaque obcaecati corporis, quo quis dolorum aliquid perferendis dolor. Odit corporis nulla officia beatae vitae maiores.
             </p>
             <div class="image-container">
-                <img src="${pageContext.request.contextPath}/assets/static%20images/customer1.png" alt="user" />
+                <img src="${pageContext.request.contextPath}/assets/user%20profile%20images/customer1.png" alt="user" />
             </div>
             <h5>Cristiano Ronaldo</h5>
             <h6>Professional Singer</h6>

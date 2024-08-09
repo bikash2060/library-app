@@ -171,11 +171,11 @@ public class UserDao {
      * It returns a User model object containing the user information if the username is found in the database.
      * Otherwise, it returns null.
      */
-    public User getAllUserInfo(String username){
+    public User getUserByUsername(String username){
 
         try{
             Connection con = DatabaseConnection.getDatabaseConnection();
-            PreparedStatement ps = con.prepareStatement(StringUtils.GET_USER_AL_INFO);
+            PreparedStatement ps = con.prepareStatement(StringUtils.GET_USER_BY_USERNAME);
             ps.setString(1, username);
 
             ResultSet rs = ps.executeQuery();
@@ -189,6 +189,7 @@ public class UserDao {
                 userInfo.setPassword(rs.getString("Password"));
                 userInfo.setPhoneNumber(rs.getString("PhoneNumber"));
                 userInfo.setUsername(rs.getString("Username"));
+                userInfo.setUserImage(rs.getString("Image"));
             }
             return userInfo;
         }

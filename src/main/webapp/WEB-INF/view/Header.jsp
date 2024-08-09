@@ -133,8 +133,7 @@
         .search-bar {
             font-size: 16px;
             width: 400px;
-            padding: 10px;
-            padding-right: 40px;
+            padding: 10px 40px 10px 10px;
             border-radius: 25px;
             box-sizing: border-box;
             border: none;
@@ -250,11 +249,12 @@
         }
 
         .user-info img{
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             object-fit: contain;
             border-radius: 50%;
             margin-right: 15px;
+            border: 1px solid #fff;
         }
 
         .sub-menu hr{
@@ -413,27 +413,38 @@
 
             <%-- Checking whether user is logged in or not --%>
             <%if(user != null){%>
-                <img src="${pageContext.request.contextPath}/assets/static images/customer1.png" class="user-pic" onclick="toggleMenu(0)" alt="user-pic">
 
-            <div class="sub-menu-wrap" id="sub-menu">
-                <div class="sub-menu">
-                    <div class="user-info">
-                        <img src="${pageContext.request.contextPath}/assets/static images/customer1.png" alt="user-pic">
-                        <h3><%= user.getFirstName()+" "+user.getLastName()%></h3>
+                <% if(user.getUserImage() == null || user.getUsername().isEmpty()) {%>
+                    <img src="${pageContext.request.contextPath}/assets/static images/default-profile-picture.png" class="user-pic" onclick="toggleMenu(0)" alt="user-pic">
+                <%} else {%>
+                    <img src="${pageContext.request.contextPath}/assets/user profile images/customer1.png" class="user-pic" onclick="toggleMenu(0)" alt="user-pic">
+                <%}%>
+
+                <div class="sub-menu-wrap" id="sub-menu">
+                    <div class="sub-menu">
+                        <div class="user-info">
+
+                            <% if(user.getUserImage() == null || user.getUsername().isEmpty()) {%>
+                                <img src="${pageContext.request.contextPath}/assets/static images/default-profile-picture.png" alt="user-pic">
+                            <%} else {%>
+                                <img src="${pageContext.request.contextPath}/assets/user profile images/customer1.png" alt="user-pic">
+                            <%}%>
+
+                            <h3><%= user.getFirstName()+" "+user.getLastName()%></h3>
+                        </div>
+                        <hr>
+                        <a href="${pageContext.request.contextPath}/my-profile" class="sub-menu-link">
+                            <i class="fa-solid fa-user"></i>
+                            <p>Edit Profile</p>
+                            <span>></span>
+                        </a>
+                        <a href="${pageContext.request.contextPath}/logout" class="sub-menu-link">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <p>Logout</p>
+                            <span>></span>
+                        </a>
                     </div>
-                    <hr>
-                    <a href="${pageContext.request.contextPath}/my-profile" class="sub-menu-link">
-                        <i class="fa-solid fa-user"></i>
-                        <p>Edit Profile</p>
-                        <span>></span>
-                    </a>
-                    <a href="${pageContext.request.contextPath}/logout" class="sub-menu-link">
-                        <i class="fa-solid fa-right-from-bracket"></i>
-                        <p>Logout</p>
-                        <span>></span>
-                    </a>
                 </div>
-            </div>
             <%}%>
         </nav>
     </div>

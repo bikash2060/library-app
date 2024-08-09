@@ -257,7 +257,7 @@
 
                 <tr>
                     <td class="image">
-                        <img src="${pageContext.request.contextPath}/assets/static%20images/customer1.png" alt="Big Little Lies Book Image">
+                        <img src="${pageContext.request.contextPath}/assets/user%20profile%20images/customer1.png" alt="Big Little Lies Book Image">
                     </td>
                     <td class="name">
                         <p>Big Little Lies</p>

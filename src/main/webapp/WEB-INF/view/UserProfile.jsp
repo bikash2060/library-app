@@ -27,7 +27,7 @@
             display: flex;
             position: relative;
             margin: 20px;
-            height: 65vh;
+            height: 500px;
         }
 
         .wrapper .side-bar {
@@ -124,6 +124,10 @@
             transform: translateX(-90%);
             background: rgb(173, 172, 172, 0.801);
             box-shadow: 2px 4px 4px rgb(0,0,0,0.644);
+        }
+
+        #username{
+            text-transform: capitalize;
         }
 
         .row{
@@ -272,7 +276,6 @@
             z-index: 1;
         }
     </style>
-
 </head>
 <body>
 <%@ include file="Header.jsp" %>
@@ -308,43 +311,50 @@
                 <div id="basic-info" class="content-section active">
                     <div class="form">
                         <form>
+                            <% if(user != null){%>
                             <div class="row">
                                 <div id="user">
-                                    <img src="${pageContext.request.contextPath}/assets/static%20images/customer1.png" alt="user-pic" class="user-pic">
+
+                                    <% if(user.getUserImage() == null || user.getUsername().isEmpty()) {%>
+                                        <img src="${pageContext.request.contextPath}/assets/static images/default-profile-picture.png" alt="user-pic" class="user-pic">
+                                    <%} else {%>
+                                        <img src="${pageContext.request.contextPath}/assets/user profile images/customer1.png" alt="user-pic" class="user-pic">
+                                    <%}%>
+
                                     <input type="file" name="image" id="image">
                                     <label for="image" id="upload-btn"><i class="fa-solid fa-camera"></i></label>
                                 </div>
                                 <div id="username">
-                                    <h2>bikash bhattarai</h2>
+                                    <h2><%= user.getFirstName()+" "+user.getLastName()%></h2>
                                 </div>
                             </div>
 
                             <div class="input-name">
                                 <i class="fa-solid fa-user lock"></i>
-                                <input type="text" placeholder="First Name" class="fname" name="firstName">
+                                <input type="text" placeholder="First Name" class="fname" name="firstName" value="<%= (request.getParameter("firstName") != null) ? request.getParameter("firstName") : user.getFirstName() %>">
                             </div>
 
                             <div class="input-name">
                                 <i class="fa-solid fa-user lock"></i>
-                                <input type="text" placeholder="Last Name" class="fname" name="lastName">
+                                <input type="text" placeholder="Last Name" class="fname" name="lastName" value="<%= (request.getParameter("lastName") != null) ? request.getParameter("lastName") : user.getLastName() %>">
                             </div>
 
                             <div class="input-name">
                                 <i class="fa-solid fa-envelope envelope"></i>
-                                <input type="text" placeholder="Email" class="email" name="emailAddress">
+                                <input type="text" placeholder="Email" class="email" name="emailAddress" value="<%= (request.getParameter("emailAddress") != null) ? request.getParameter("emailAddress") : user.getEmailAddress() %>">
 
                             </div>
 
                             <div class="input-name">
                                 <i class="fa-solid fa-phone phoneNumber"></i>
-                                <input type="text" placeholder="Phone Number" class="number" name="phoneNumber">
+                                <input type="text" placeholder="Phone Number" class="number" name="phoneNumber" value="<%= (request.getParameter("phoneNumber") != null) ? request.getParameter("phoneNumber") : user.getPhoneNumber() %>">
                             </div>
 
                             <div class="input-name">
                                 <i class="fa-solid fa-user phoneNumber"></i>
-                                <input type="text" placeholder="Username" class="username" name="username">
+                                <input type="text" placeholder="Username" class="username" name="username" value="<%= (request.getParameter("username") != null) ? request.getParameter("username") : user.getUsername() %>">
                             </div>
-
+                            <%}%>
                             <div class="input-name">
                                 <input type="submit" class="btn" value="Save">
                             </div>
