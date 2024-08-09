@@ -183,6 +183,7 @@ public class UserDao {
             User userInfo = new User();
 
             while(rs.next()) {
+                userInfo.setUserID(rs.getInt("UserID"));
                 userInfo.setFirstName(rs.getString("FirstName"));
                 userInfo.setLastName(rs.getString("LastName"));
                 userInfo.setEmailAddress(rs.getString("EmailAddress"));

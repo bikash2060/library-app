@@ -6,6 +6,7 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1L;
 
     // Instance Variables
+    private int userID;
     private String firstName;
     private String lastName;
     private String emailAddress;
@@ -32,6 +33,10 @@ public class User implements Serializable {
         this.phoneNumber = phoneNumber;
         this.username = username;
     }
+
+    public int getUserID() { return userID; }
+
+    public void setUserID(int userID) { this.userID = userID; }
 
     public String getFirstName() {
         return firstName;

@@ -356,6 +356,7 @@
                             </div>
                             <%}%>
                             <div class="input-name">
+                                <input type="hidden" name="userID" value="<%= user != null ? user.getUserID() : 0%>">
                                 <input type="submit" class="btn" value="Save">
                             </div>
                         </form>
