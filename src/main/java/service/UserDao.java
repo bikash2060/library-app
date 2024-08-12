@@ -17,7 +17,7 @@ public class UserDao {
         this.connection = DatabaseConnection.getDatabaseConnection();
     }
 
-    /*
+    /**
      * This method is used to check if a given email address exists in the database.
      * @return true if existed otherwise false.
      */
@@ -39,7 +39,7 @@ public class UserDao {
         return result;
     }
 
-    /*
+    /**
      * This method is used to check if a given phone number exists in the database.
      * @return true if existed otherwise false.
      */
@@ -61,7 +61,7 @@ public class UserDao {
         return result;
     }
 
-    /*
+    /**
      * This method is used to check if a given username exists in the database.
      * @return true if existed otherwise false.
     */
@@ -83,7 +83,7 @@ public class UserDao {
         return result;
     }
 
-    /*
+    /**
      * This method registers a new user by inserting their information into the database.
      * It returns an integer code indicating the result of the registration process:
      *  0: Error occurred during login
@@ -133,7 +133,7 @@ public class UserDao {
         }
     }
 
-    /*
+    /**
      * This method retrieves user information from the database based on the provided username and validates the login credentials.
      * It returns an integer code indicating the result of the login process:
      *  0: Incorrect password
@@ -166,7 +166,7 @@ public class UserDao {
         }
     }
 
-    /*
+    /**
      * This method retrieves all user information from the database based on the provided username.
      * It returns a User model object containing the user information if the username is found in the database.
      * Otherwise, it returns null.
@@ -174,8 +174,7 @@ public class UserDao {
     public User getUserByUsername(String username){
 
         try{
-            Connection con = DatabaseConnection.getDatabaseConnection();
-            PreparedStatement ps = con.prepareStatement(StringUtils.GET_USER_BY_USERNAME);
+            PreparedStatement ps = connection.prepareStatement(StringUtils.GET_USER_BY_USERNAME);
             ps.setString(1, username);
 
             ResultSet rs = ps.executeQuery();
@@ -194,11 +193,130 @@ public class UserDao {
             }
             return userInfo;
         }
-        catch(SQLException | ClassNotFoundException e) {
+        catch(SQLException e) {
             e.printStackTrace();
             return null;
         }
     }
+
+    /**
+     * This method checks whether the email address provided in the User object
+     * already exists in the database, excluding the current user's email.
+     */
+    public boolean isEmailDuplicate(User user){
+        boolean result = false;
+
+        try{
+            PreparedStatement ps = connection.prepareStatement(StringUtils.CHECK_DUPLICATE_EMAIL);
+            ps.setString(1, user.getEmailAddress());
+            ps.setInt(2, user.getUserID());
+
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                int count = rs.getInt(1);
+                result = count > 0;
+            }
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+        return result;
+    }
+    /**
+     * This method checks whether the phone number provided in the User object
+     * already exists in the database, excluding the current user's phone number.
+     */
+    public boolean isPhoneNumberDuplicate(User user){
+        boolean result = false;
+
+        try{
+            PreparedStatement ps = connection.prepareStatement(StringUtils.CHECK_DUPLICATE_PHONE);
+            ps.setString(1, user.getPhoneNumber());
+            ps.setInt(2, user.getUserID());
+
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                int count = rs.getInt(1);
+                result = count > 0;
+            }
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    /**
+     * This method checks whether the username  provided in the User object
+     * already exists in the database, excluding the current user's username.
+     */
+    public boolean isUsernameDuplicate(User user){
+        boolean result = false;
+
+        try{
+            PreparedStatement ps = connection.prepareStatement(StringUtils.CHECK_DUPLICATE_USERNAME);
+            ps.setString(1, user.getUsername());
+            ps.setInt(2, user.getUserID());
+
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                int count = rs.getInt(1);
+                result = count > 0;
+            }
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+
+
+    public int updateUser(User user){
+
+        boolean isEmailDuplicate = isEmailDuplicate(user);
+        boolean isPhoneNumberDuplicate = isPhoneNumberDuplicate(user);
+        boolean isUsernameDuplicate = isUsernameDuplicate(user);
+        if(isEmailDuplicate){
+            return -1;
+        }
+        else if(isPhoneNumberDuplicate){
+            return -2;
+        }
+        else if(isUsernameDuplicate){
+            return -3;
+        }
+        else{
+            try{
+                PreparedStatement ps = connection.prepareStatement(StringUtils.UPDATE_USER);
+                ps.setString(1, user.getFirstName());
+                ps.setString(2, user.getLastName());
+                ps.setString(3, user.getEmailAddress());
+                ps.setString(4, user.getPhoneNumber());
+                ps.setString(5, user.getUsername());
+                ps.setInt(6, user.getUserID());
+
+                int result = ps.executeUpdate();
+                if(result == 1){
+                    return 1;
+                }
+                else{
+                    return 0;
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                return -4;
+            }
+
+        }
+
+    }
+
+
+
+
+
 
 
 }
