@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @WebServlet(asyncSupported = true, urlPatterns = StringUtils.USER_PROFILE_UPDATE_SERVLET)
-public class UserUpdateProfile extends HttpServlet {
+public class UserDetailsUpdate extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private UserDao userDao;
 
