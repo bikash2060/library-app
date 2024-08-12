@@ -372,7 +372,6 @@
                 <!-- User's Basic Information Section -->
                 <div id="basic-info" class="content-section active">
                     <div class="form">
-                        <% if(user != null){%>
                             <form action="${pageContext.request.contextPath}/my-profile-update" method="post">
                                 <div class="row">
                                     <div id="user">
@@ -422,7 +421,6 @@
                                     <input type="submit" class="btn" value="Save">
                                 </div>
                             </form>
-                        <%}%>
                     </div>
                 </div>
 
