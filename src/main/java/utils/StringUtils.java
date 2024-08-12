@@ -46,9 +46,6 @@ public class StringUtils {
     public static final String LOGIN_PAGE = "/WEB-INF/view/Login.jsp";
     public static final String SIGN_UP_PAGE = "/WEB-INF/view/SignUp.jsp";
     public static final String BOOK_DETAILS_PAGE = "/WEB-INF/view/BookDetails.jsp";
-    public static final String CART_DETAILS_PAGE = "/WEB-INF/view/CartDetails.jsp";
-    public static final String CHECKOUT_PAGE = "/WEB-INF/view/Checkout.jsp";
-    public static final String INVOICE_PAGE = "/WEB-INF/view/Invoice.jsp";
     public static final String USER_PROFILE_PAGE = "/WEB-INF/view/UserProfile.jsp";
 
     // Error Message Key - Global
