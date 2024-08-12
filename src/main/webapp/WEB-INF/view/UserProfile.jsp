@@ -427,7 +427,7 @@
                 <!-- User's Password Section -->
                 <div id="password" class="content-section">
                     <div class="form">
-                        <form>
+                        <form action="${pageContext.request.contextPath}/my-password-update" method="post">
 
                             <div class="input-name">
                                 <i class="fa-solid fa-lock pass"></i>
@@ -445,6 +445,7 @@
                             </div>
 
                             <div class="input-name">
+                                <input type="hidden" name="userID" value="<%= user.getUserID()%>">
                                 <input type="submit" class="btn" value="Save">
                             </div>
                         </form>
@@ -455,7 +456,7 @@
                 <!-- User's Order History Section -->
                 <div id="order-history" class="content-section">
                     <div class="form">
-                        <div class="table-container">
+                        <%--<div class="table-container">
                             <table>
                                 <thead>
                                 <tr>
@@ -551,58 +552,10 @@
                                     <td>$100.00</td>
                                     <td>Paid</td>
                                 </tr>
-                                <tr>
-                                    <td>12345</td>
-                                    <td>2024-08-04</td>
-                                    <td>$10.00</td>
-                                    <td>$100.00</td>
-                                    <td>Paid</td>
-                                </tr>
-                                <tr>
-                                    <td>12345</td>
-                                    <td>2024-08-04</td>
-                                    <td>$10.00</td>
-                                    <td>$100.00</td>
-                                    <td>Paid</td>
-                                </tr>
-                                <tr>
-                                    <td>12345</td>
-                                    <td>2024-08-04</td>
-                                    <td>$10.00</td>
-                                    <td>$100.00</td>
-                                    <td>Paid</td>
-                                </tr>
-                                <tr>
-                                    <td>12345</td>
-                                    <td>2024-08-04</td>
-                                    <td>$10.00</td>
-                                    <td>$100.00</td>
-                                    <td>Paid</td>
-                                </tr>
-                                <tr>
-                                    <td>12345</td>
-                                    <td>2024-08-04</td>
-                                    <td>$10.00</td>
-                                    <td>$100.00</td>
-                                    <td>Paid</td>
-                                </tr>
-                                <tr>
-                                    <td>12345</td>
-                                    <td>2024-08-04</td>
-                                    <td>$10.00</td>
-                                    <td>$100.00</td>
-                                    <td>Paid</td>
-                                </tr>
-                                <tr>
-                                    <td>12345</td>
-                                    <td>2024-08-04</td>
-                                    <td>$10.00</td>
-                                    <td>$100.00</td>
-                                    <td>Paid</td>
-                                </tr>
                                 </tbody>
                             </table>
-                        </div>
+                        </div> --%>
+                        <h2>No orders for now</h2>
                     </div>
                 </div>
 

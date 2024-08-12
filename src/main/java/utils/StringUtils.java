@@ -37,6 +37,7 @@ public class StringUtils {
     public static final String BOOK_DETAILS_SERVLET = "/book-details";
     public static final String USER_PROFILE_DETAILS_SERVLET = "/my-profile";
     public static final String USER_PROFILE_UPDATE_SERVLET = "/my-profile-update";
+    public static final String USER_PASSWORD_UPDATE_SERVLET = "/my-password-update";
 
     // JSP Route
     public static final String INDEX_PAGE = "/WEB-INF/Index.jsp";

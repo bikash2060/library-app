@@ -172,7 +172,6 @@ public class UserDao {
      * Otherwise, it returns null.
      */
     public User getUserByUsername(String username){
-
         try{
             PreparedStatement ps = connection.prepareStatement(StringUtils.GET_USER_BY_USERNAME);
             ps.setString(1, username);
@@ -205,7 +204,6 @@ public class UserDao {
      */
     public boolean isEmailDuplicate(User user){
         boolean result = false;
-
         try{
             PreparedStatement ps = connection.prepareStatement(StringUtils.CHECK_DUPLICATE_EMAIL);
             ps.setString(1, user.getEmailAddress());
@@ -228,7 +226,6 @@ public class UserDao {
      */
     public boolean isPhoneNumberDuplicate(User user){
         boolean result = false;
-
         try{
             PreparedStatement ps = connection.prepareStatement(StringUtils.CHECK_DUPLICATE_PHONE);
             ps.setString(1, user.getPhoneNumber());
@@ -252,7 +249,6 @@ public class UserDao {
      */
     public boolean isUsernameDuplicate(User user){
         boolean result = false;
-
         try{
             PreparedStatement ps = connection.prepareStatement(StringUtils.CHECK_DUPLICATE_USERNAME);
             ps.setString(1, user.getUsername());
@@ -270,10 +266,17 @@ public class UserDao {
         return result;
     }
 
-
-
+    /**
+     * This method updates the user information in the database.
+     * Before updating, it checks for duplicate entries for email, phone number, and username.
+     * - -1 if the email address is already used by another user.
+     * - -2 if the phone number is already used by another user.
+     * - -3 if the username is already used by another user.
+     * -  1 if the user information is successfully updated.
+     * -  0 if the update operation failed (no rows affected).
+     * - -4 if there is an SQL exception during the update process.
+     */
     public int updateUser(User user){
-
         boolean isEmailDuplicate = isEmailDuplicate(user);
         boolean isPhoneNumberDuplicate = isPhoneNumberDuplicate(user);
         boolean isUsernameDuplicate = isUsernameDuplicate(user);
@@ -308,14 +311,8 @@ public class UserDao {
                 e.printStackTrace();
                 return -4;
             }
-
         }
-
     }
-
-
-
-
 
 
 
