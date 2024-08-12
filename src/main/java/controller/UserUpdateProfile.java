@@ -5,14 +5,12 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import model.User;
 import service.UserDao;
 import utils.SignUpValidation;
 import utils.StringUtils;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 
 @WebServlet(asyncSupported = true, urlPatterns = StringUtils.USER_PROFILE_UPDATE_SERVLET)
