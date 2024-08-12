@@ -25,6 +25,12 @@ public class StringUtils {
     public static final String GET_USER_BY_USERNAME = "SELECT * FROM user WHERE Username = ?";
     public static final String INSERT_USER = "INSERT INTO user (FirstName, LastName, EmailAddress, Password, PhoneNumber, Username) VALUES" +
             "(?,?,?,?,?,?)";
+    public static final String CHECK_DUPLICATE_EMAIL = "SELECT COUNT(*) FROM User WHERE EmailAddress = ? AND UserID != ?";
+    public static final String CHECK_DUPLICATE_PHONE = "SELECT COUNT(*) FROM User WHERE PhoneNumber = ? AND UserID != ?";
+    public static final String CHECK_DUPLICATE_USERNAME = "SELECT COUNT(*) FROM User WHERE Username = ? AND UserID != ?";
+    public static final String UPDATE_USER = "UPDATE User SET FirstName = ?, LastName = ?, EmailAddress = ?, PhoneNumber = ?, Username = ? WHERE UserID = ?";
+
+
 
     // Servlets Mapping
     public static final String SIGNUP_SERVLET = "/signup";
@@ -60,10 +66,10 @@ public class StringUtils {
     public static final String DUPLICATE_EMAIL_ERROR_MESSAGE = "Email address already exists";
     public static final String DUPLICATE_PHONE_NUMBER_ERROR_MESSAGE = "Phone number already exists";
     public static final String DUPLICATE_USERNAME_ERROR_MESSAGE = "Username already exists";
-
-    // Error Message Value - Login Page
+    public static final String EMPTY_FIELD_ERROR_MESSAGE = "Field cannot be empty";
     public static final String USERNAME_NOT_FOUND_ERROR_MESSAGE = "Username not found";
     public static final String INCORRECT_PASSWORD_ERROR_MESSAGE = "Incorrect password";
+    public static final String USER_UPDATE_ERROR_MESSAGE = "User update failed";
 
     // Success Message Key
     public static final String SUCCESS_MESSAGE_KEY = "successMessage";
@@ -71,7 +77,6 @@ public class StringUtils {
 
     // Success Message Value - SignUp Page
     public static final String USER_SUCCESS_REGISTER_MESSAGE = "User registered successfully";
-
-    // Success Message Value - Login Page
     public static final String USER_SUCCESS_LOGIN_MESSAGE = "User logged in successfully";
+    public static final String USER_UPDATE_SUCCESS_MESSAGE = "User updated successfully";
 }
