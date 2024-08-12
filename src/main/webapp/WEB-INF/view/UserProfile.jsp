@@ -223,7 +223,7 @@
         /* CSS for the table container to enable scrolling */
         .table-container {
             width: 100%;
-            height: 60vh;
+            height: 450px;
             overflow-y: auto;
             overflow-x: hidden;
             margin-bottom: 1em;
