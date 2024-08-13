@@ -1,3 +1,5 @@
+<%@ page import="model.User" %>
+<%@ page import="utils.StringUtils" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -6,6 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <title>My Profile</title>
+    <%
+        User user = (User) session.getAttribute(StringUtils.USER_OBJECT);
+    %>
     <style>
         /* Import Google font - Poppins */
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
@@ -254,11 +259,20 @@
 <nav class="navbar">
     <div class="logo_item">
         <i class="bx bx-menu" id="sidebarOpen"></i>
-        <img src="${pageContext.request.contextPath}/assets/static%20images/default-profile-picture.png" alt="">Bikash Bhattarai
+        <% if(user.getUserImage() == null || user.getUsername().isEmpty()) {%>
+            <img src="${pageContext.request.contextPath}/assets/static%20images/default-profile-picture.png" alt="">
+        <%} else {%>
+            <img src="${pageContext.request.contextPath}/assets/user%20profile%20images/customer1.png" alt="">
+        <%}%>
+        <%=user.getFirstName()+" "+user.getLastName()%>
     </div>
 
     <div class="navbar_content">
-        <img src="${pageContext.request.contextPath}/assets/static%20images/default-profile-picture.png" alt="" class="profile" />
+        <% if(user.getUserImage() == null || user.getUsername().isEmpty()) {%>
+        <img src="${pageContext.request.contextPath}/assets/static%20images/default-profile-picture.png" alt="" class="profile">
+        <%} else {%>
+        <img src="${pageContext.request.contextPath}/assets/user%20profile%20images/customer1.png" alt="" class="profile">
+        <%}%>
     </div>
 </nav>
 
