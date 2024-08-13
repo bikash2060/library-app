@@ -11,7 +11,7 @@ import utils.StringUtils;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(asyncSupported = true, urlPatterns = StringUtils.USER_PASSWORD_UPDATE_SERVLET)
+@WebServlet(asyncSupported = true, urlPatterns = StringUtils.USER_PASSWORD_SERVLET)
 
 public class UserPasswordUpdate extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -24,6 +24,11 @@ public class UserPasswordUpdate extends HttpServlet {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher(StringUtils.USER_PASSWORD_PAGE).forward(req, resp);
     }
 
     @Override
