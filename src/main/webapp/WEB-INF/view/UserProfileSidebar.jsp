@@ -254,11 +254,11 @@
 <nav class="navbar">
     <div class="logo_item">
         <i class="bx bx-menu" id="sidebarOpen"></i>
-        <img src="${[pageContext.request.contextPath}/assets/static%20images/default-profile-picture.png" alt="">Bikash Bhattarai
+        <img src="${pageContext.request.contextPath}/assets/static%20images/default-profile-picture.png" alt="">Bikash Bhattarai
     </div>
 
     <div class="navbar_content">
-        <img src="${[pageContext.request.contextPath}/assets/static%20images/default-profile-picture.png" alt="" class="profile" />
+        <img src="${pageContext.request.contextPath}/assets/static%20images/default-profile-picture.png" alt="" class="profile" />
     </div>
 </nav>
 
@@ -268,7 +268,7 @@
         <ul class="menu_items">
 
             <li class="item">
-                <a href="UserBasicInfo.html" class="nav_link">
+                <a href="${pageContext.request.contextPath}/my-profile" class="nav_link">
                       <span class="navlink_icon">
                         <i class="bx bx-user"></i>
                       </span>
@@ -277,7 +277,7 @@
             </li>
 
             <li class="item">
-                <a href="#" class="nav_link">
+                <a href="${pageContext.request.contextPath}/my-password" class="nav_link">
                       <span class="navlink_icon">
                         <i class="bx bx-lock"></i>
                       </span>

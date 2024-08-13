@@ -37,14 +37,15 @@ public class StringUtils {
     public static final String BOOK_DETAILS_SERVLET = "/book-details";
     public static final String USER_PROFILE_DETAILS_SERVLET = "/my-profile";
     public static final String USER_PROFILE_UPDATE_SERVLET = "/my-profile-update";
-    public static final String USER_PASSWORD_UPDATE_SERVLET = "/my-password-update";
+    public static final String USER_PASSWORD_SERVLET = "/my-password";
 
     // JSP Route
     public static final String INDEX_PAGE = "/WEB-INF/Index.jsp";
     public static final String LOGIN_PAGE = "/WEB-INF/view/Login.jsp";
     public static final String SIGN_UP_PAGE = "/WEB-INF/view/SignUp.jsp";
     public static final String BOOK_DETAILS_PAGE = "/WEB-INF/view/BookDetails.jsp";
-    public static final String USER_PROFILE_PAGE = "/WEB-INF/view/UserProfile.jsp";
+    public static final String USER_PROFILE_PAGE = "/WEB-INF/view/UserBasicInfo.jsp";
+    public static final String USER_PASSWORD_PAGE = "/WEB-INF/view/UserPassword.jsp";
 
     // Error Message Key - Global
     public static final String ERROR_MESSAGE_KEY = "errorMessage";

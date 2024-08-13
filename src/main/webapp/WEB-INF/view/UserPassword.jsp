@@ -182,7 +182,8 @@
     </style>
 </head>
 <body>
-<jsp:include page="UserProfileSidebar.jsp"></jsp:include>
+
+<%@ include file="UserProfileSidebar.jsp" %>
 
 <!-- Body Section -->
 <div class="body-content">
