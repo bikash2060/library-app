@@ -41,7 +41,7 @@ public class UserPasswordUpdate extends HttpServlet {
         // Validation for Empty Field
         if((oldPassword == null || oldPassword.isEmpty())|| (newPassword == null || newPassword.isEmpty()) || (confirmPassword == null || confirmPassword.isEmpty()) ) {
             req.setAttribute(StringUtils.ERROR_MESSAGE_KEY, StringUtils.EMPTY_FIELD_ERROR_MESSAGE);
-            req.getRequestDispatcher(StringUtils.USER_PROFILE_PAGE).forward(req, resp);
+            req.getRequestDispatcher(StringUtils.USER_PASSWORD_PAGE).forward(req, resp);
             return;
         }
     }

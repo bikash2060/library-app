@@ -179,9 +179,37 @@
             text-decoration: underline;
         }
 
-        .error-message {
-            color: red;
-            margin-bottom: 10px;
+        .message-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            padding: 10px;
+            width: 500px;
+            border-radius: 5px;
+            margin: 0 auto;
+        }
+
+        .message-container.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message-container.err{
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .message-container .close-btn {
+            cursor: pointer;
+        }
+
+        .close-btn i {
+            color: inherit;
         }
     </style>
 </head>
@@ -191,9 +219,26 @@
 
 <!-- Body Section -->
 <div class="body-content">
+    <% String errorMessage = (String) request.getAttribute(StringUtils.ERROR_MESSAGE_KEY);
+        if (errorMessage != null && !errorMessage.isEmpty()) { %>
+    <div class="message-container err">
+        <p><%= errorMessage %></p>
+        <span class="close-btn" onclick="this.parentElement.style.display='none';"><i class="fa-solid fa-x"></i></span>
+    </div>
+    <% } %>
+    <% String successMessage = (String) session.getAttribute(StringUtils.SUCCESS_MESSAGE_KEY);
+        if (successMessage != null && !successMessage.isEmpty()) { %>
+    <div class="message-container success">
+        <span><%= successMessage %></span>
+        <span class="close-btn" onclick="this.parentElement.style.display='none';"><i class="fa-solid fa-x"></i></span>
+    </div>
+    <%
+        session.removeAttribute(StringUtils.SUCCESS_MESSAGE_KEY);
+    %>
+    <% } %>
     <div class="container">
         <div class="form-container">
-            <form action="" method="post">
+            <form action="${pageContext.request.contextPath}/my-profile-update" method="post">
                 <div class="input-name">
                     <div class="row">
                         <div id="user">
@@ -237,6 +282,7 @@
                 </div>
 
                 <div class="input-name">
+                    <input type="hidden" value="<%=user.getUserID()%>" name="userID">
                     <input type="submit" class="btn" value="Save">
                 </div>
             </form>
