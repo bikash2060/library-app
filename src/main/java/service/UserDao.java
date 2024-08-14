@@ -296,7 +296,8 @@ public class UserDao {
                 ps.setString(3, user.getEmailAddress());
                 ps.setString(4, user.getPhoneNumber());
                 ps.setString(5, user.getUsername());
-                ps.setInt(6, user.getUserID());
+                ps.setString(6, user.getUserImage());
+                ps.setInt(7, user.getUserID());
 
                 int result = ps.executeUpdate();
                 if(result == 1){

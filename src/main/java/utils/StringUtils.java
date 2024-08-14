@@ -8,6 +8,11 @@ public class StringUtils {
     public static final String USER = "root";
     public static final String PASS = "Bishal@123";
 
+    // Variables to save image in local directory
+    public static final String IMAGE_DIRECTORY = "Users/N I T R O 5/Desktop/Java Backend Projectts/library-app/src/main/webapp/assets";
+    public static final String BOOK_IMAGE_DIRECTORY = "C:/"+ IMAGE_DIRECTORY + "/book images/";
+    public static final String USER_PROFILE_IMAGE_DIRECTORY = "C:/"+ IMAGE_DIRECTORY + "/user profile images/";
+
     // Parameter
     public static final String FIRST_NAME = "firstName";
     public static final String LAST_NAME = "lastName";
@@ -27,7 +32,7 @@ public class StringUtils {
     public static final String CHECK_DUPLICATE_EMAIL = "SELECT COUNT(*) FROM User WHERE EmailAddress = ? AND UserID != ?";
     public static final String CHECK_DUPLICATE_PHONE = "SELECT COUNT(*) FROM User WHERE PhoneNumber = ? AND UserID != ?";
     public static final String CHECK_DUPLICATE_USERNAME = "SELECT COUNT(*) FROM User WHERE Username = ? AND UserID != ?";
-    public static final String UPDATE_USER = "UPDATE User SET FirstName = ?, LastName = ?, EmailAddress = ?, PhoneNumber = ?, Username = ? WHERE UserID = ?";
+    public static final String UPDATE_USER = "UPDATE User SET FirstName = ?, LastName = ?, EmailAddress = ?, PhoneNumber = ?, Username = ?, Image = ? WHERE UserID = ?";
     public static final String UPDATE_USER_PASSWORD = "UPDATE user SET Password = ? WHERE UserID = ?";
 
     // Servlets Mapping

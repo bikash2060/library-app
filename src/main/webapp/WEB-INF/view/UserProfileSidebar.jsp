@@ -260,18 +260,18 @@
     <div class="logo_item">
         <i class="bx bx-menu" id="sidebarOpen"></i>
         <% if(user.getUserImage() == null || user.getUsername().isEmpty()) {%>
-            <img src="${pageContext.request.contextPath}/assets/static%20images/default-profile-picture.png" alt="">
+            <img src="${pageContext.request.contextPath}/assets/static images/default-profile-picture.png" alt="">
         <%} else {%>
-            <img src="${pageContext.request.contextPath}/assets/user%20profile%20images/customer1.png" alt="">
+            <img src="${pageContext.request.contextPath}/assets/user profile images/<%= user.getUserImage()%>" alt="">
         <%}%>
         <%=user.getFirstName()+" "+user.getLastName()%>
     </div>
 
     <div class="navbar_content">
         <% if(user.getUserImage() == null || user.getUsername().isEmpty()) {%>
-        <img src="${pageContext.request.contextPath}/assets/static%20images/default-profile-picture.png" alt="" class="profile">
+        <img src="${pageContext.request.contextPath}/assets/static images/default-profile-picture.png" alt="" class="profile">
         <%} else {%>
-        <img src="${pageContext.request.contextPath}/assets/user%20profile%20images/customer1.png" alt="" class="profile">
+        <img src="${pageContext.request.contextPath}/assets/user profile images/<%= user.getUserImage()%>" alt="" class="profile">
         <%}%>
     </div>
 </nav>

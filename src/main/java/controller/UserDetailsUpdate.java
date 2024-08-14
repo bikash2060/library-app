@@ -1,19 +1,21 @@
 package controller;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.*;
 import model.User;
 import service.UserDao;
 import utils.SignUpValidation;
 import utils.StringUtils;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.SQLException;
 
 @WebServlet(asyncSupported = true, urlPatterns = StringUtils.USER_PROFILE_DETAILS_SERVLET)
+@MultipartConfig
 public class UserDetailsUpdate extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private UserDao userDao;
@@ -35,6 +37,10 @@ public class UserDetailsUpdate extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        HttpSession session = req.getSession(false);
+        User user = (User) session.getAttribute(StringUtils.USER_OBJECT);
+        String previousImageName = user.getUserImage();
+
         String userID = req.getParameter("userID");
         int userId = Integer.parseInt(userID);
         String firstName = req.getParameter("firstName");
@@ -42,6 +48,29 @@ public class UserDetailsUpdate extends HttpServlet {
         String emailAddress = req.getParameter("emailAddress");
         String phoneNumber = req.getParameter("phoneNumber");
         String username = req.getParameter("username");
+        Part userImage = req.getPart("image");
+
+        String imageFileName = null;
+
+        if(userImage != null && userImage.getSize() > 0) {
+            imageFileName = userImage.getSubmittedFileName();
+
+            try{
+                FileOutputStream fos = new FileOutputStream(StringUtils.USER_PROFILE_IMAGE_DIRECTORY+imageFileName);
+                InputStream is = userImage.getInputStream();
+
+                byte[] buffer = new byte[is.available()];
+                is.read(buffer);
+                fos.write(buffer);
+                fos.close();
+            }
+            catch(IOException e){
+                e.printStackTrace();
+            }
+        }
+        else{
+            imageFileName = previousImageName;
+        }
 
         // Validation for Empty Field
         if((firstName == null || firstName.isEmpty())|| (lastName == null || lastName.isEmpty()) || (phoneNumber == null || phoneNumber.isEmpty()) ||
@@ -86,6 +115,7 @@ public class UserDetailsUpdate extends HttpServlet {
         newDetails.setEmailAddress(emailAddress);
         newDetails.setPhoneNumber(phoneNumber);
         newDetails.setUsername(username);
+        newDetails.setUserImage(imageFileName);
 
         int result = userDao.updateUserInfo(newDetails);
         switch (result){

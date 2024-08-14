@@ -238,14 +238,14 @@
     <% } %>
     <div class="container">
         <div class="form-container">
-            <form action="${pageContext.request.contextPath}/my-profile" method="post">
+            <form action="${pageContext.request.contextPath}/my-profile" method="post" enctype="multipart/form-data">
                 <div class="input-name">
                     <div class="row">
                         <div id="user">
                             <% if(user.getUserImage() == null || user.getUsername().isEmpty()) {%>
-                                <img src="${pageContext.request.contextPath}/assets/static%20images/default-profile-picture.png" alt="user-pic" class="user-pic">
+                                <img src="${pageContext.request.contextPath}/assets/static images/default-profile-picture.png" alt="user-pic" class="user-pic">
                             <% } else { %>
-                                <img src="${pageContext.request.contextPath}/assets/user%20profile%20images/customer1.png" alt="user-pic" class="user-pic">
+                                <img src="${pageContext.request.contextPath}/assets/user profile images/<%= user.getUserImage()%>" alt="user-pic" class="user-pic">
                             <% } %>
                             <input type="file" name="image" id="image">
                             <label for="image" id="upload-btn"><i class="fa-solid fa-camera"></i></label>

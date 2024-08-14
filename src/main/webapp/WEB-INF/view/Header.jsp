@@ -251,7 +251,7 @@
         .user-info img{
             width: 50px;
             height: 50px;
-            object-fit: contain;
+            object-fit: cover;
             border-radius: 50%;
             margin-right: 15px;
         }
@@ -416,7 +416,7 @@
                 <% if(user.getUserImage() == null || user.getUsername().isEmpty()) {%>
                     <img src="${pageContext.request.contextPath}/assets/static images/default-profile-picture.png" class="user-pic" onclick="toggleMenu(0)" alt="user-pic">
                 <%} else {%>
-                    <img src="${pageContext.request.contextPath}/assets/user profile images/customer1.png" class="user-pic" onclick="toggleMenu(0)" alt="user-pic">
+                    <img src="${pageContext.request.contextPath}/assets/user profile images/<%= user.getUserImage()%>" class="user-pic" onclick="toggleMenu(0)" alt="user-pic">
                 <%}%>
 
                 <div class="sub-menu-wrap" id="sub-menu">
@@ -426,7 +426,7 @@
                             <% if(user.getUserImage() == null || user.getUsername().isEmpty()) {%>
                                 <img src="${pageContext.request.contextPath}/assets/static images/default-profile-picture.png" alt="user-pic">
                             <%} else {%>
-                                <img src="${pageContext.request.contextPath}/assets/user profile images/customer1.png" alt="user-pic">
+                                <img src="${pageContext.request.contextPath}/assets/user profile images/<%= user.getUserImage()%>" alt="user-pic">
                             <%}%>
 
                             <h3><%= user.getFirstName()+" "+user.getLastName()%></h3>
