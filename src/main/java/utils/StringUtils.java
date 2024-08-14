@@ -10,8 +10,8 @@ public class StringUtils {
 
     // Variables to save image in local directory
     public static final String IMAGE_DIRECTORY = "Users/N I T R O 5/Desktop/Java Backend Projectts/library-app/src/main/webapp/assets";
-    public static final String BOOK_IMAGE_DIRECTORY = "C:/"+ IMAGE_DIRECTORY + "/book images/";
     public static final String USER_PROFILE_IMAGE_DIRECTORY = "C:/"+ IMAGE_DIRECTORY + "/user profile images/";
+    public static final String BOOK_IMAGE_DIRECTORY = "C:/"+ IMAGE_DIRECTORY + "/book images/";
 
     // Parameter
     public static final String FIRST_NAME = "firstName";
