@@ -11,3 +11,6 @@ User Capabilities:
 <br><br>
 Admin Capabilities:
 Ongoing.......
+<br>
+Note: A full description will be added after the project is complete.
+
