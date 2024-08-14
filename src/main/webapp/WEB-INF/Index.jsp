@@ -1032,15 +1032,15 @@
 
         <!-- Pagination -->
         <div class="pagination">
-            <button class="prev-btn" onclick="backBtn()"><i class="fa-solid fa-arrow-right fa-rotate-180"></i>prev</button>
+            <button class="prev-btn" onclick="backBtn()"><span class="icon"><i class="fa-solid fa-arrow-right fa-rotate-180"></i></span> prev</button>
             <ul>
-                <li class="link active" value="1" onclick="activeLink(event)">1</li>
-                <li class="link" value="2" onclick="activeLink(event)">2</li>
-                <li class="link" value="3" onclick="activeLink(event)">3</li>
-                <li class="link" value="4" onclick="activeLink(event)">4</li>
-                <li class="link" value="5" onclick="activeLink(event)">5</li>
+                <li class="link active" data-value="1" onclick="activeLink(event)">1</li>
+                <li class="link" data-value="2" onclick="activeLink(event)">2</li>
+                <li class="link" data-value="3" onclick="activeLink(event)">3</li>
+                <li class="link" data-value="4" onclick="activeLink(event)">4</li>
+                <li class="link" data-value="5" onclick="activeLink(event)">5</li>
             </ul>
-            <button class="next-btn" onclick="nextBtn()">next<i class="fa-solid fa-arrow-right"></i></button>
+            <button class="next-btn" onclick="nextBtn()">next <span class="icon"><i class="fa-solid fa-arrow-right"></i></span></button>
         </div>
     </div>
 </div>
@@ -1094,29 +1094,9 @@
     </div>
 </div>
 
-
 <%@ include file="view/Footer.jsp"%>
 <script src="${pageContext.request.contextPath}/js/ImageSlider.js"></script>
-<%--JS for background images slider--%>
-<script>
-    const images = [
-        '${pageContext.request.contextPath}/assets/static images/background.jpg',
-        '${pageContext.request.contextPath}/assets/static images/background1.jpg',
-        '${pageContext.request.contextPath}/assets/static images/background2.jpg'
-    ];
-
-    let currentImageIndex = 0;
-
-    function changeBackgroundImage() {
-        const sliderContent = document.querySelector('.slider-content');
-        sliderContent.style.backgroundImage = `url(${images[currentImageIndex]})`;
-        currentImageIndex = (currentImageIndex + 1) % images.length;
-    }
-
-    setInterval(changeBackgroundImage, 3000);
-
-    window.onload = changeBackgroundImage;
-</script>
-<script src="${pageContext.reques.contextPath}/js/Pagination.js"></script>
+<script src="${pageContext.request.contextPath}/js/BackgroundImageSlider.js"></script>
+<script src="${pageContext.request.contextPath}/js/Pagination.js"></script>
 </body>
 </html>
