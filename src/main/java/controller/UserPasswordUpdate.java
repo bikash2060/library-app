@@ -39,8 +39,18 @@ public class UserPasswordUpdate extends HttpServlet {
         String confirmPassword = req.getParameter("confirmPassword");
 
         // Validation for Empty Field
-        if((oldPassword == null || oldPassword.isEmpty())|| (newPassword == null || newPassword.isEmpty()) || (confirmPassword == null || confirmPassword.isEmpty()) ) {
+        if((oldPassword == null || oldPassword.trim().isEmpty())|| (newPassword == null || newPassword.trim().isEmpty()) || (confirmPassword == null || confirmPassword.trim().isEmpty()) ) {
             req.setAttribute(StringUtils.ERROR_MESSAGE_KEY, StringUtils.EMPTY_FIELD_ERROR_MESSAGE);
+            req.getRequestDispatcher(StringUtils.USER_PASSWORD_PAGE).forward(req, resp);
+            return;
+        }
+        System.out.println(oldPassword);
+        System.out.println(newPassword);
+        System.out.println(confirmPassword);
+
+        // Validation for new password and confirm password
+        if(!newPassword.equals(confirmPassword)) {
+            req.setAttribute(StringUtils.ERROR_MESSAGE_KEY, StringUtils.CONFIRM_PASSWORD_ERROR_MESSAGE);
             req.getRequestDispatcher(StringUtils.USER_PASSWORD_PAGE).forward(req, resp);
             return;
         }
