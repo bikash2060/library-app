@@ -267,13 +267,6 @@
         <%=user.getFirstName()+" "+user.getLastName()%>
     </div>
 
-    <div class="navbar_content">
-        <% if(user.getUserImage() == null || user.getUsername().isEmpty()) {%>
-        <img src="${pageContext.request.contextPath}/assets/static images/default-profile-picture.png" alt="" class="profile">
-        <%} else {%>
-        <img src="${pageContext.request.contextPath}/assets/user profile images/<%= user.getUserImage()%>" alt="" class="profile">
-        <%}%>
-    </div>
 </nav>
 
 <!-- sidebar -->
