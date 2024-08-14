@@ -127,6 +127,26 @@
             text-decoration: underline;
         }
 
+        #pass{
+            position: relative;
+        }
+
+        #pass .showPass{
+            position: absolute;
+            top: 6%;
+            right: 0;
+            font-size: 16px;
+            color: blue;
+            padding: 8px;
+            border: none;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        #pass .showPass:hover {
+            color: #0056b3;
+        }
+
         .error {
             color: red;
             font-size: 15px;
@@ -201,7 +221,7 @@
                     <div class="error" id="emailError"></div>
                 </div>
 
-                <div class="input-name">
+                <div class="input-name" id="pass">
                     <i class="fa-solid fa-lock pass"></i>
                     <input type="password" placeholder="Password" class="password" name="password" value="<%= (request.getParameter("password") != null) ? request.getParameter("password") : "" %>">
                     <div class="error" id="passwordError"></div>
@@ -230,7 +250,7 @@
                 </div>
 
                 <div class="login-link">
-                    <p>Already have an account? <a href="${pageContext.request.contextPath}/WEB-INF/view/Login.jsp">Log In</a></p>
+                    <p>Already have an account? <a href="${pageContext.request.contextPath}/login">Log In</a></p>
                 </div>
             </form>
         </div>
