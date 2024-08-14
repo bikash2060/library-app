@@ -165,6 +165,50 @@
             text-decoration: underline;
         }
 
+        #pass, #newPass, #conPass{
+            position: relative;
+        }
+
+        #pass .showPass{
+            position: absolute;
+            top: 6%;
+            right: 0;
+            font-size: 16px;
+            color: blue;
+            padding: 8px;
+            border: none;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        #newPass .showPass{
+            position: absolute;
+            top: 6%;
+            right: 0;
+            font-size: 16px;
+            color: blue;
+            padding: 8px;
+            border: none;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        #conPass .showPass{
+            position: absolute;
+            top: 6%;
+            right: 0;
+            font-size: 16px;
+            color: blue;
+            padding: 8px;
+            border: none;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        #pass .showPass:hover {
+            color: #0056b3;
+        }
+
         .message-container {
             display: flex;
             justify-content: space-between;
@@ -201,7 +245,6 @@
     </style>
 </head>
 <body>
-
 <%@ include file="UserProfileSidebar.jsp" %>
 
 <!-- Body Section -->
@@ -227,20 +270,22 @@
         <div class="form-container">
             <form action="${pageContext.request.contextPath}/my-password" method="post">
 
-                <div class="input-name">
+                <div class="input-name" id="pass">
                     <i class="fa-solid fa-key envelope"></i>
-                    <input type="password" placeholder="Old Password" class="email" name="oldPassword">
-
+                    <input type="password" placeholder="Old Password" class="email" name="oldPassword" id="oldPassword">
+                    <i class="fa-solid fa-eye showPass"></i>
                 </div>
 
-                <div class="input-name">
+                <div class="input-name" id="newPass">
                     <i class="fa-solid fa-key phoneNumber"></i>
-                    <input type="password" placeholder="New Password" class="number" name="newPassword">
+                    <input type="password" placeholder="New Password" class="number" name="newPassword" id="newPassword">
+                    <i class="fa-solid fa-eye showPass"></i>
                 </div>
 
-                <div class="input-name">
+                <div class="input-name" id="conPass">
                     <i class="fa-solid fa-key phoneNumber"></i>
-                    <input type="password" placeholder="Confirm Password" class="username" name="oldPassword">
+                    <input type="password" placeholder="Confirm Password" class="username" name="confirmPassword" id="confirmPassword">
+                    <i class="fa-solid fa-eye showPass"></i>
                 </div>
 
                 <div class="input-name">
@@ -250,5 +295,44 @@
         </div>
     </div>
 </div>
+
+<script>
+    // For Show Password Icon
+    document.addEventListener('DOMContentLoaded', function() {
+        const oldPasswordInput = document.getElementById('oldPassword');
+        const newPasswordInput = document.getElementById('newPassword');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+        const showPassIcons = document.querySelectorAll('.showPass');
+
+        showPassIcons.forEach(function(icon) {
+            icon.addEventListener('click', function() {
+                const inputField = icon.previousElementSibling;
+                if (inputField.type === 'password') {
+                    inputField.type = 'text';
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    inputField.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                }
+            });
+
+            const inputField = icon.previousElementSibling;
+            inputField.addEventListener('input', function() {
+                if (inputField.value.length > 0) {
+                    icon.style.display = 'block';
+                } else {
+                    icon.style.display = 'none';
+                }
+            });
+
+            if (inputField.value.length > 0) {
+                icon.style.display = 'block';
+            } else {
+                icon.style.display = 'none';
+            }
+        });
+    });
+
+</script>
 </body>
 </html>
