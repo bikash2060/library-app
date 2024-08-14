@@ -126,6 +126,26 @@
             opacity: 0.5;
         }
 
+        #pass{
+            position: relative;
+        }
+
+        #pass .showPass{
+            position: absolute;
+            top: 6%;
+            right: 0;
+            font-size: 16px;
+            color: blue;
+            padding: 8px;
+            border: none;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        #pass .showPass:hover {
+            color: #0056b3;
+        }
+
         .message-container {
             display: flex;
             justify-content: space-between;
@@ -194,9 +214,10 @@
                     <span id="username-error"></span>
                 </div>
 
-                <div class="input-name">
+                <div class="input-name" id="pass">
                     <i class="fa-solid fa-lock pass"></i>
                     <input type="password" placeholder="Password" class="password" name="password" id="password">
+                    <i class="fa-solid fa-eye showPass"></i>
                     <span id="password-error"></span>
                 </div>
 
@@ -212,12 +233,12 @@
     </div>
 </div>
 
-<script src="${pageContext.request.contextPath}/js/FormValidation.js"></script>
+<%@ include file="Footer.jsp"%>
+<script src="${pageContext.request.contextPath}/js/LoginValidation.js"></script>
 <script>
     function hideMessage(element) {
         element.parentNode.style.display = "none";
     }
 </script>
-<%@ include file="Footer.jsp"%>
 </body>
 </html>
