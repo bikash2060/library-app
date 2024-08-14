@@ -30,7 +30,6 @@ public class StringUtils {
     public static final String UPDATE_USER = "UPDATE User SET FirstName = ?, LastName = ?, EmailAddress = ?, PhoneNumber = ?, Username = ? WHERE UserID = ?";
     public static final String UPDATE_USER_PASSWORD = "UPDATE user SET Password = ? WHERE UserID = ?";
 
-
     // Servlets Mapping
     public static final String SIGNUP_SERVLET = "/signup";
     public static final String LOGIN_SERVLET = "/login";
@@ -52,7 +51,7 @@ public class StringUtils {
     public static final String ERROR_MESSAGE_KEY = "errorMessage";
     public static final String SERVER_ERROR_MESSAGE = "An unexpected server error occurred";
 
-    // Success Message Key
+    // Success Message Key - Global
     public static final String SUCCESS_MESSAGE_KEY = "successMessage";
     public static final String SUCCESS_LOGIN_MESSAGE_KEY = "loginMessage";
 
