@@ -13,7 +13,7 @@ import utils.StringUtils;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(asyncSupported = true, urlPatterns = StringUtils.USER_PROFILE_UPDATE_SERVLET)
+@WebServlet(asyncSupported = true, urlPatterns = StringUtils.USER_PROFILE_DETAILS_SERVLET)
 public class UserDetailsUpdate extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private UserDao userDao;
@@ -25,6 +25,11 @@ public class UserDetailsUpdate extends HttpServlet {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher(StringUtils.USER_PROFILE_PAGE).forward(req, resp);
     }
 
     @Override
