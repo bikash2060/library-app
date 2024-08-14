@@ -28,6 +28,8 @@ public class StringUtils {
     public static final String CHECK_DUPLICATE_PHONE = "SELECT COUNT(*) FROM User WHERE PhoneNumber = ? AND UserID != ?";
     public static final String CHECK_DUPLICATE_USERNAME = "SELECT COUNT(*) FROM User WHERE Username = ? AND UserID != ?";
     public static final String UPDATE_USER = "UPDATE User SET FirstName = ?, LastName = ?, EmailAddress = ?, PhoneNumber = ?, Username = ? WHERE UserID = ?";
+    public static final String UPDATE_USER_PASSWORD = "UPDATE user SET Password = ? WHERE UserID = ?";
+
 
     // Servlets Mapping
     public static final String SIGNUP_SERVLET = "/signup";
@@ -36,7 +38,6 @@ public class StringUtils {
     public static final String INDEX_SERVLET = "/home";
     public static final String BOOK_DETAILS_SERVLET = "/book-details";
     public static final String USER_PROFILE_DETAILS_SERVLET = "/my-profile";
-//    public static final String USER_PROFILE_UPDATE_SERVLET = "/my-profile-update";
     public static final String USER_PASSWORD_SERVLET = "/my-password";
 
     // JSP Route
@@ -55,7 +56,7 @@ public class StringUtils {
     public static final String SUCCESS_MESSAGE_KEY = "successMessage";
     public static final String SUCCESS_LOGIN_MESSAGE_KEY = "loginMessage";
 
-    // Error Message Value - SignUp Page
+    // Error Message Value
     public static final String FIRST_NAME_ERROR_MESSAGE = "First name is invalid";
     public static final String LAST_NAME_ERROR_MESSAGE = "Last name is invalid";
     public static final String EMAIL_ADDRESS_ERROR_MESSAGE = "Email address is invalid";
@@ -70,9 +71,11 @@ public class StringUtils {
     public static final String USERNAME_NOT_FOUND_ERROR_MESSAGE = "Username not found";
     public static final String INCORRECT_PASSWORD_ERROR_MESSAGE = "Incorrect password";
     public static final String USER_UPDATE_ERROR_MESSAGE = "User update failed";
+    public static final String OLD_PASSWORD_ERROR_MESSAGE = "Old password doesn't match";
 
-    // Success Message Value - SignUp Page
+    // Success Message Value
     public static final String USER_SUCCESS_REGISTER_MESSAGE = "User registered successfully";
     public static final String USER_SUCCESS_LOGIN_MESSAGE = "User logged in successfully";
-    public static final String USER_UPDATE_SUCCESS_MESSAGE = "User updated successfully";
+    public static final String USER_UPDATE_SUCCESS_MESSAGE = "User details updated successfully";
+    public static final String USER_PASSWORD_UPDATE_SUCCESS_MESSAGE = "User password updated successfully";
 }

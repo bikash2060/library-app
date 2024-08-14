@@ -42,7 +42,7 @@ public class UserLogin extends HttpServlet {
         String password = req.getParameter(StringUtils.PASSWORD);
 
         User user = new User(username, password);
-        int result = userDao.geUserInfo(user);
+        int result = userDao.getUserInfo(user);
 
         switch (result){
             case 1:

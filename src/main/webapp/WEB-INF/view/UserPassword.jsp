@@ -272,19 +272,19 @@
 
                 <div class="input-name" id="pass">
                     <i class="fa-solid fa-key envelope"></i>
-                    <input type="password" placeholder="Old Password" class="email" name="oldPassword" id="oldPassword">
+                    <input type="password" placeholder="Old Password" class="email" name="oldPassword" id="oldPassword" value="<%= (request.getParameter("oldPassword") != null) ? request.getParameter("oldPassword") : "" %>">
                     <i class="fa-solid fa-eye showPass"></i>
                 </div>
 
                 <div class="input-name" id="newPass">
                     <i class="fa-solid fa-key phoneNumber"></i>
-                    <input type="password" placeholder="New Password" class="number" name="newPassword" id="newPassword">
+                    <input type="password" placeholder="New Password" class="number" name="newPassword" id="newPassword" value="<%= (request.getParameter("newPassword") != null) ? request.getParameter("newPassword") : "" %>">
                     <i class="fa-solid fa-eye showPass"></i>
                 </div>
 
                 <div class="input-name" id="conPass">
                     <i class="fa-solid fa-key phoneNumber"></i>
-                    <input type="password" placeholder="Confirm Password" class="username" name="confirmPassword" id="confirmPassword">
+                    <input type="password" placeholder="Confirm Password" class="username" name="confirmPassword" id="confirmPassword" value="<%= (request.getParameter("confirmPassword") != null) ? request.getParameter("confirmPassword") : "" %>">
                     <i class="fa-solid fa-eye showPass"></i>
                 </div>
 

@@ -87,7 +87,7 @@ public class UserDetailsUpdate extends HttpServlet {
         newDetails.setPhoneNumber(phoneNumber);
         newDetails.setUsername(username);
 
-        int result = userDao.updateUser(newDetails);
+        int result = userDao.updateUserInfo(newDetails);
         switch (result){
             case 1:
                 req.getSession().setAttribute(StringUtils.SUCCESS_MESSAGE_KEY, StringUtils.USER_UPDATE_SUCCESS_MESSAGE);

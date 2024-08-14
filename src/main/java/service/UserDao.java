@@ -141,7 +141,7 @@ public class UserDao {
      * -1: Username not found in the database
      * -2: Error occurred during login
      */
-    public int geUserInfo(User user){
+    public int getUserInfo(User user){
         try{
             PreparedStatement ps = connection.prepareStatement(StringUtils.GET_USER_BY_USERNAME);
             ps.setString(1, user.getUsername());
@@ -276,7 +276,7 @@ public class UserDao {
      * -  0 if the update operation failed (no rows affected).
      * - -4 if there is an SQL exception during the update process.
      */
-    public int updateUser(User user){
+    public int updateUserInfo(User user){
         boolean isEmailDuplicate = isEmailDuplicate(user);
         boolean isPhoneNumberDuplicate = isPhoneNumberDuplicate(user);
         boolean isUsernameDuplicate = isUsernameDuplicate(user);
@@ -311,6 +311,33 @@ public class UserDao {
                 e.printStackTrace();
                 return -4;
             }
+        }
+    }
+
+    /**
+     * This method updates the user's password in the database.
+     * -  1 if the password is successfully updated.
+     * -  0 if the update operation failed (no rows affected).
+     * - -4 if there is an SQL exception during the update process.
+     *
+     */
+    public int updateUserPassword(User user, String newPassword){
+        try{
+            PreparedStatement ps = connection.prepareStatement(StringUtils.UPDATE_USER_PASSWORD);
+            ps.setString(1, newPassword);
+            ps.setInt(2, user.getUserID());
+
+            int result = ps.executeUpdate();
+            if(result == 1){
+                return 1;
+            }
+            else{
+                return 0;
+            }
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+            return -1;
         }
     }
 
