@@ -238,7 +238,7 @@
     <% } %>
     <div class="container">
         <div class="form-container">
-            <form action="${pageContext.request.contextPath}/my-profile-update" method="post">
+            <form action="${pageContext.request.contextPath}/my-profile" method="post">
                 <div class="input-name">
                     <div class="row">
                         <div id="user">
