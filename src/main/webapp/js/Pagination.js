@@ -6,7 +6,7 @@ function activeLink(event){
         l.classList.remove("active");
     }
     event.target.classList.add("active");
-    currentValue = parseInt(event.target.getAttribute("value"));
+    currentValue = parseInt(event.target.getAttribute("data-value"));
 }
 
 function backBtn(){
