@@ -12,7 +12,6 @@ import java.sql.SQLException;
 public class UserDao {
 
     Connection connection;
-
     public UserDao() throws SQLException, ClassNotFoundException {
         this.connection = DatabaseConnection.getDatabaseConnection();
     }
