@@ -1,5 +1,7 @@
 <%@ page import="model.User" %>
 <%@ page import="utils.StringUtils" %>
+<%@ page import="java.util.List" %>
+<%@ page import="model.Genre" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
@@ -660,6 +662,9 @@
             border-color: var(--white);
         }
     </style>
+    <%
+        List<Genre> allGenres = (List<Genre>) request.getAttribute(StringUtils.GENRE_OBJECT);
+    %>
 </head>
 <body>
 
@@ -808,21 +813,21 @@
             <form>
                 <div class="filter-group">
                     <label for="category">Category:</label>
-                    <select id="category" name="category">
+                    <select id="category" name="category" required>
                         <option value="">Select Category</option>
-                        <option value="fiction">Fiction</option>
-                        <option value="non-fiction">Non-Fiction</option>
-                        <option value="science">Science</option>
-                        <option value="history">History</option>
+                        <% if(allGenres != null && !allGenres.isEmpty()){%>
+                            <% for(Genre genre: allGenres){%>
+                                <option value="<%= genre.getGenreName()%>"><%= genre.getGenreName()%></option>
+                        <%} }%>
                     </select>
                 </div>
                 <div class="filter-group">
                     <label for="author">Author:</label>
-                    <input type="text" id="author" name="author" placeholder="Enter author name">
+                    <input type="text" id="author" name="author" placeholder="Enter author name" required>
                 </div>
                 <div class="filter-group">
                     <label for="date">Publication Date:</label>
-                    <input type="date" id="date" name="date">
+                    <input type="date" id="date" name="date" required>
                 </div>
                 <div class="filter-group">
                     <button type="submit">Apply Filters</button>
