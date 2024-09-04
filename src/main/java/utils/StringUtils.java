@@ -22,6 +22,7 @@ public class StringUtils {
     public static final String PHONE_NUMBER = "phoneNumber";
     public static final String USERNAME = "username";
     public static final String USER_OBJECT = "user";
+    public static final String GENRE_OBJECT = "genre";
 
     // SQL Queries
     public static final String GET_USER_BY_EMAIL = "SELECT * FROM user WHERE EmailAddress = ?";
@@ -34,6 +35,10 @@ public class StringUtils {
     public static final String CHECK_DUPLICATE_USERNAME = "SELECT COUNT(*) FROM User WHERE Username = ? AND UserID != ?";
     public static final String UPDATE_USER = "UPDATE User SET FirstName = ?, LastName = ?, EmailAddress = ?, PhoneNumber = ?, Username = ?, Image = ? WHERE UserID = ?";
     public static final String UPDATE_USER_PASSWORD = "UPDATE user SET Password = ? WHERE UserID = ?";
+    public static final String GET_ALL_GENRE = "SELECT * FROM Genre";
+
+
+
 
     // Servlets Mapping
     public static final String SIGNUP_SERVLET = "/signup";
