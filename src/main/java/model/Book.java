@@ -14,6 +14,7 @@ public class Book {
     private int quantity;
     private String image;
     private boolean showOnHomePage;
+    private String genreName;
 
     public Book() {}
 
@@ -107,5 +108,13 @@ public class Book {
 
     public void setShowOnHomePage(boolean showOnHomePage) {
         this.showOnHomePage = showOnHomePage;
+    }
+
+    public String getGenreName() {
+        return genreName;
+    }
+
+    public void setGenreName(String genreName) {
+        this.genreName = genreName;
     }
 }

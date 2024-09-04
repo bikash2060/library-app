@@ -2,6 +2,7 @@
 <%@ page import="utils.StringUtils" %>
 <%@ page import="java.util.List" %>
 <%@ page import="model.Genre" %>
+<%@ page import="model.Book" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
@@ -664,6 +665,7 @@
     </style>
     <%
         List<Genre> allGenres = (List<Genre>) request.getAttribute(StringUtils.GENRE_OBJECT);
+        List<Book> featuredBooks = (List<Book>) request.getAttribute(StringUtils.FEATURED_BOOKS_OBJECT);
     %>
 </head>
 <body>
@@ -679,35 +681,42 @@
             <div class="slider">
 
                 <!-- 1st Slider -->
-                <div class="slide">
-                    <div class="info-cell">
-                        <h1 class="book-title">1984</h1>
-                        <p><strong>Author:</strong> George Orwell</p>
-                        <p><strong>Genre:</strong> Dystopian, Political Fiction</p>
-                        <p><strong>Published:</strong> 1949</p>
-                        <p class="book-description"><strong>Description:</strong> A dystopian novel set in a totalitarian society under the rule of Big Brother. The story follows Winston Smith's struggle against the oppressive regime and his quest for truth and individuality.</p>
-                        <p><strong>Rating:</strong>
-                            <i class="fa fa-star star-gold"></i>
-                            <i class="fa fa-star star-gold"></i>
-                            <i class="fa fa-star star-gold"></i>
-                            <i class="fa fa-star star-gold"></i>
-                            <i class="fa fa-star-half-alt star-gold"></i> (4.2/5)
-                        </p>
-                        <p class="price"><strong>Price:</strong> <span>$14.99</span></p>
-                        <p><strong>Language:</strong> English</p>
-                        <p class="availability">
-                            <strong>Availability:</strong>
-                            <span class="status">In Stock</span>
-                        </p>
-                        <div class="button-group">
-                            <a href="" class="btn add-to-cart">Add to Cart</a>
+                <%if(featuredBooks != null && !featuredBooks.isEmpty()){%>
+                    <%for(Book book: featuredBooks){%>
+                        <div class="slide">
+                            <div class="info-cell">
+                                <h1 class="book-title"><%= book.getBookTitle()%></h1>
+                                <p><strong>Author:</strong> <%= book.getAuthorName()%></p>
+                                <p><strong>Genre:</strong> <%= book.getGenreName()%></p>
+                                <p><strong>Published:</strong> <%= book.getPublishDate()%></p>
+                                <p class="book-description"><strong>Description:</strong> <%= book.getDescription()%></p>
+                                <p><strong>Rating:</strong>
+                                    <i class="fa fa-star star-gold"></i>
+                                    <i class="fa fa-star star-gold"></i>
+                                    <i class="fa fa-star star-gold"></i>
+                                    <i class="fa fa-star star-gold"></i>
+                                    <i class="fa fa-star-half-alt star-gold"></i> (4.2/5)
+                                </p>
+                                <p class="price"><strong>Price:</strong> <span>$<%= book.getPrice()%></span></p>
+                                <p><strong>Language:</strong> <%=book.getLanguage()%></p>
+                                <p class="availability">
+                                    <strong>Availability:</strong>
+                                    <%if(book.getQuantity() == 0){%>
+                                        <span class="status">Out of Stock</span>
+                                    <% } else {%>
+                                    <span class="status">In Stock</span>
+                                </p>
+                                <div class="button-group">
+                                    <a href="" class="btn add-to-cart">Add to Cart</a>
+                                </div>
+                                <%}%>
+                            </div>
+                            <div class="image-cell">
+                                <img src="${pageContext.request.contextPath}/assets/static images/default-book-images.jpg" alt="1984 Book" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="image-cell">
-                        <img src="${pageContext.request.contextPath}/assets/book%20images/1984%20book.jpg" alt="1984 Book" />
-                    </div>
-                </div>
-
+                    <%}}%>
+<%--
                 <!-- 2nd Slider -->
                 <div class="slide">
                     <div class="info-cell">
@@ -797,7 +806,7 @@
                         <img src="${pageContext.request.contextPath}/assets/book%20images/The%20book%20thief.jpg" alt="The Book Thief Book" />
                     </div>
                 </div>
-
+--%>
             </div>
             <div class="slider-nav">
                 <span class="nav-dot" onclick="currentSlide(1)"></span>
