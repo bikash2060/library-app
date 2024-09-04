@@ -666,6 +666,7 @@
     <%
         List<Genre> allGenres = (List<Genre>) request.getAttribute(StringUtils.GENRE_OBJECT);
         List<Book> featuredBooks = (List<Book>) request.getAttribute(StringUtils.FEATURED_BOOKS_OBJECT);
+        List<Book> allBooks = (List<Book>) request.getAttribute(StringUtils.ALL_BOOKS_OBJECT);
     %>
 </head>
 <body>
@@ -712,101 +713,14 @@
                                 <%}%>
                             </div>
                             <div class="image-cell">
-                                <img src="${pageContext.request.contextPath}/assets/static images/default-book-images.jpg" alt="1984 Book" />
+                                <%if(book.getImage() == null){%>
+                                    <img src="${pageContext.request.contextPath}/assets/static images/default-book-images.jpg" alt="1984 Book" />
+                                <%}else {%>
+                                    <% System.out.println("Image found");%>
+                                <% }%>
                             </div>
                         </div>
                     <%}}%>
-<%--
-                <!-- 2nd Slider -->
-                <div class="slide">
-                    <div class="info-cell">
-                        <h1 class="book-title">Big Little Lies</h1>
-                        <p><strong>Author:</strong> Liane Moriarty</p>
-                        <p><strong>Genre:</strong> Mystery, Drama</p>
-                        <p><strong>Published:</strong> 2014</p>
-                        <p class="book-description"><strong>Description:</strong> A gripping tale of three women whose seemingly perfect lives unravel to reveal a dark and tragic secret. Set in a wealthy Australian community, the novel explores themes of friendship, family, and domestic violence.</p>
-                        <p><strong>Rating:</strong>
-                            <i class="fa fa-star star-gold"></i>
-                            <i class="fa fa-star star-gold"></i>
-                            <i class="fa fa-star star-gold"></i>
-                            <i class="fa fa-star star-gold"></i>
-                            <i class="fa fa-star-half-alt star-gold"></i> (4.4/5)
-                        </p>
-                        <p class="price"><strong>Price:</strong> <span>$14.99</span></p>
-                        <p><strong>Language:</strong> English</p>
-                        <p class="availability">
-                            <strong>Availability:</strong>
-                            <span class="status">In Stock</span>
-                        </p>
-                        <div class="button-group">
-                            <a href="" class="btn add-to-cart">Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="image-cell">
-                        <img src="${pageContext.request.contextPath}/assets/book%20images/Big%20Little%20Lies.jpg" alt="Big Little Lies Book" />
-                    </div>
-                </div>
-
-                <!-- 3rd Slider -->
-                <div class="slide">
-                    <div class="info-cell">
-                        <h1 class="book-title">Gone Girl</h1>
-                        <p><strong>Author:</strong> Gillian Flynn</p>
-                        <p><strong>Genre:</strong> Thriller, Mystery</p>
-                        <p><strong>Published:</strong> 2012</p>
-                        <p class="book-description"><strong>Description:</strong> A psychological thriller about the disappearance of a woman named Amy Dunne and the ensuing investigation that puts her husband, Nick, under scrutiny. The novel explores themes of deception, marriage, and media influence.</p>
-                        <p><strong>Rating:</strong>
-                            <i class="fa fa-star star-gold"></i>
-                            <i class="fa fa-star star-gold"></i>
-                            <i class="fa fa-star star-gold"></i>
-                            <i class="fa fa-star star-gold"></i>
-                            <i class="fa fa-star-half-alt star-gold"></i> (4.1/5)
-                        </p>
-                        <p class="price"><strong>Price:</strong> <span>$14.99</span></p>
-                        <p><strong>Language:</strong> English</p>
-                        <p class="availability">
-                            <strong>Availability:</strong>
-                            <span class="status">In Stock</span>
-                        </p>
-                        <div class="button-group">
-                            <a href="" class="btn add-to-cart">Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="image-cell">
-                        <img src="${pageContext.request.contextPath}/assets/book%20images/Gone%20Girl.jpg" alt="Gone Girl Book" />
-                    </div>
-                </div>
-
-                <!-- 4th Slider -->
-                <div class="slide">
-                    <div class="info-cell">
-                        <h1 class="book-title">The Book Thief</h1>
-                        <p><strong>Author:</strong> Markus Zusak</p>
-                        <p><strong>Genre:</strong> Historical Fiction</p>
-                        <p><strong>Published:</strong> 2005</p>
-                        <p class="book-description"><strong>Description:</strong> Set in Nazi Germany, this novel follows Liesel Meminger, a young girl who steals books and shares them with others. Narrated by Death, it provides a poignant exploration of life during wartime and the power of literature.</p>
-                        <p><strong>Rating:</strong>
-                            <i class="fa fa-star star-gold"></i>
-                            <i class="fa fa-star star-gold"></i>
-                            <i class="fa fa-star star-gold"></i>
-                            <i class="fa fa-star star-gold"></i>
-                            <i class="fa fa-star star-gold"></i> (4.7/5)
-                        </p>
-                        <p class="price"><strong>Price:</strong> <span>$14.99</span></p>
-                        <p><strong>Language:</strong> English</p>
-                        <p class="availability">
-                            <strong>Availability:</strong>
-                            <span class="status">In Stock</span>
-                        </p>
-                        <div class="button-group">
-                            <a href="" class="btn add-to-cart">Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="image-cell">
-                        <img src="${pageContext.request.contextPath}/assets/book%20images/The%20book%20thief.jpg" alt="The Book Thief Book" />
-                    </div>
-                </div>
---%>
             </div>
             <div class="slider-nav">
                 <span class="nav-dot" onclick="currentSlide(1)"></span>
@@ -875,189 +789,56 @@
 <!-- Books Section -->
 <div class="book-section">
     <div class="container">
-
-        <!-- 1 Page -->
-        <div class="row-1">
-
-            <div class="col">
-                <div class="image-container">
-                    <img src="${pageContext.request.contextPath}/assets/book%20images/1984%20book.jpg" alt="book-image">
-                </div>
-                <div class="book-details">
-                    <h2 class="book-name">1984</h2>
-                    <p class="author-name">Author: Author Name</p>
-                    <p class="published-date">Published Date: 2020-10-20</p>
-                    <p class="price">Price: <strong>$19.20</strong></p>
-                    <p class="availability">
-                        <strong>Availability:</strong>
-                        <span class="status">In Stock</span>
-                    </p>
-                </div>
-                <div class="button-group">
-                    <a href="" class="btn add-to-cart">Add to Cart</a>
-                    <a href="${pageContext.request.contextPath}/book-details" class="btn view-details">View Details</a>
-                </div>
+        <div class="row">
+            <%
+                if (allBooks != null) {
+                    int count = 0; // Counter to manage column layout
+                    for (Book book : allBooks) {
+                        if (count % 4 == 0 && count != 0) {
+            %></div>
+        <div class="row"><%
+    }
+    %>
+        <div class="col">
+            <div class="image-container">
+                <%if(book.getImage() != null){%>
+                    <img src="${pageContext.request.contextPath}/assets/book%20images/<%= book.getImage() %>" alt="book-image">
+                <%}else {%>
+                    <img src="${pageContext.request.contextPath}/assets/static images/default-book-images.jpg" alt="1984 Book" />
+                <%}%>
             </div>
-
-            <div class="col">
-                <div class="image-container">
-                    <img src="${pageContext.request.contextPath}/assets/book%20images/1984%20book.jpg" alt="book-image">
-                </div>
-                <div class="book-details">
-                    <h2 class="book-name">1984</h2>
-                    <p class="author-name">Author: Author Name</p>
-                    <p class="published-date">Published Date: 2020-10-20</p>
-                    <p class="price">Price: <strong>$19.20</strong></p>
-                    <p class="availability">
-                        <strong>Availability:</strong>
-                        <span class="status">In Stock</span>
-                    </p>
-                </div>
-                <div class="button-group">
-                    <a href="" class="btn add-to-cart">Add to Cart</a>
-                    <a href="${pageContext.request.contextPath}/book-details" class="btn view-details">View Details</a>
-                </div>
+            <div class="book-details">
+                <h2 class="book-name"><%= book.getBookTitle() %></h2>
+                <p class="author-name">Author: <%= book.getAuthorName() %></p>
+                <p class="published-date">Published Date: <%= book.getPublishDate() %></p>
+                <p class="price">Price: <strong><%= book.getPrice() %></strong></p>
+                <p class="availability">
+                    <strong>Availability:</strong>
+                    <span class="status"><%= book.getQuantity() > 0 ? "In Stock" : "Out of Stock" %></span>
+                </p>
             </div>
-
-            <div class="col">
-                <div class="image-container">
-                    <img src="${pageContext.request.contextPath}/assets/book%20images/1984%20book.jpg" alt="book-image">
-                </div>
-                <div class="book-details">
-                    <h2 class="book-name">1984</h2>
-                    <p class="author-name">Author: Author Name</p>
-                    <p class="published-date">Published Date: 2020-10-20</p>
-                    <p class="price">Price: <strong>$19.20</strong></p>
-                    <p class="availability">
-                        <strong>Availability:</strong>
-                        <span class="status">In Stock</span>
-                    </p>
-                </div>
-                <div class="button-group">
-                    <a href="" class="btn add-to-cart">Add to Cart</a>
-                    <a href="${pageContext.request.contextPath}/book-details" class="btn view-details">View Details</a>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="image-container">
-                    <img src="${pageContext.request.contextPath}/assets/book%20images/1984%20book.jpg" alt="book-image">
-                </div>
-                <div class="book-details">
-                    <h2 class="book-name">1984</h2>
-                    <p class="author-name">Author: Author Name</p>
-                    <p class="published-date">Published Date: 2020-10-20</p>
-                    <p class="price">Price: <strong>$19.20</strong></p>
-                    <p class="availability">
-                        <strong>Availability:</strong>
-                        <span class="status">In Stock</span>
-                    </p>
-                </div>
-                <div class="button-group">
-                    <a href="" class="btn add-to-cart">Add to Cart</a>
-                    <a href="${pageContext.request.contextPath}/book-details" class="btn view-details">View Details</a>
-                </div>
+            <div class="button-group">
+                <%if(book.getQuantity() == 0){%>
+                    <a href="<%= request.getContextPath() %>/book-details?bookId=<%= book.getBookID() %>" class="btn view-details">View Details</a>
+                <%} else {%>
+                    <a href="#" class="btn add-to-cart">Add to Cart</a>
+                    <a href="<%= request.getContextPath() %>/book-details?bookId=<%= book.getBookID() %>" class="btn view-details">View Details</a>
+                <%}%>
             </div>
         </div>
-
-        <div class="row-1">
-
-            <div class="col">
-                <div class="image-container">
-                    <img src="${pageContext.request.contextPath}/assets/book%20images/1984%20book.jpg" alt="book-image">
-                </div>
-                <div class="book-details">
-                    <h2 class="book-name">1984</h2>
-                    <p class="author-name">Author: Author Name</p>
-                    <p class="published-date">Published Date: 2020-10-20</p>
-                    <p class="price">Price: <strong>$19.20</strong></p>
-                    <p class="availability">
-                        <strong>Availability:</strong>
-                        <span class="status">In Stock</span>
-                    </p>
-                </div>
-                <div class="button-group">
-                    <a href="" class="btn add-to-cart">Add to Cart</a>
-                    <a href="${pageContext.request.contextPath}/book-details" class="btn view-details">View Details</a>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="image-container">
-                    <img src="${pageContext.request.contextPath}/assets/book%20images/1984%20book.jpg" alt="book-image">
-                </div>
-                <div class="book-details">
-                    <h2 class="book-name">1984</h2>
-                    <p class="author-name">Author: Author Name</p>
-                    <p class="published-date">Published Date: 2020-10-20</p>
-                    <p class="price">Price: <strong>$19.20</strong></p>
-                    <p class="availability">
-                        <strong>Availability:</strong>
-                        <span class="status">In Stock</span>
-                    </p>
-                </div>
-                <div class="button-group">
-                    <a href="" class="btn add-to-cart">Add to Cart</a>
-                    <a href="${pageContext.request.contextPath}/book-details" class="btn view-details">View Details</a>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="image-container">
-                    <img src="${pageContext.request.contextPath}/assets/book%20images/1984%20book.jpg" alt="book-image">
-                </div>
-                <div class="book-details">
-                    <h2 class="book-name">1984</h2>
-                    <p class="author-name">Author: Author Name</p>
-                    <p class="published-date">Published Date: 2020-10-20</p>
-                    <p class="price">Price: <strong>$19.20</strong></p>
-                    <p class="availability">
-                        <strong>Availability:</strong>
-                        <span class="status">In Stock</span>
-                    </p>
-                </div>
-                <div class="button-group">
-                    <a href="" class="btn add-to-cart">Add to Cart</a>
-                    <a href="${pageContext.request.contextPath}/book-details" class="btn view-details">View Details</a>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="image-container">
-                    <img src="${pageContext.request.contextPath}/assets/book%20images/1984%20book.jpg" alt="book-image">
-                </div>
-                <div class="book-details">
-                    <h2 class="book-name">1984</h2>
-                    <p class="author-name">Author: Author Name</p>
-                    <p class="published-date">Published Date: 2020-10-20</p>
-                    <p class="price">Price: <strong>$19.20</strong></p>
-                    <p class="availability">
-                        <strong>Availability:</strong>
-                        <span class="status">In Stock</span>
-                    </p>
-                </div>
-                <div class="button-group">
-                    <a href="" class="btn add-to-cart">Add to Cart</a>
-                    <a href="${pageContext.request.contextPath}/book-details" class="btn view-details">View Details</a>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Pagination -->
-        <div class="pagination">
-            <button class="prev-btn" onclick="backBtn()"><span class="icon"><i class="fa-solid fa-arrow-right fa-rotate-180"></i></span> prev</button>
-            <ul>
-                <li class="link active" data-value="1" onclick="activeLink(event)">1</li>
-                <li class="link" data-value="2" onclick="activeLink(event)">2</li>
-                <li class="link" data-value="3" onclick="activeLink(event)">3</li>
-                <li class="link" data-value="4" onclick="activeLink(event)">4</li>
-                <li class="link" data-value="5" onclick="activeLink(event)">5</li>
-            </ul>
-            <button class="next-btn" onclick="nextBtn()">next <span class="icon"><i class="fa-solid fa-arrow-right"></i></span></button>
-        </div>
+        <%
+                count++;
+            }
+        } else {
+        %>
+        <p>No books available.</p>
+        <%
+            }
+        %>
+    </div>
     </div>
 </div>
+
 
 
 
@@ -1111,6 +892,5 @@
 <%@ include file="view/Footer.jsp"%>
 <script src="${pageContext.request.contextPath}/js/ImageSlider.js"></script>
 <script src="${pageContext.request.contextPath}/js/BackgroundImageSlider.js"></script>
-<script src="${pageContext.request.contextPath}/js/Pagination.js"></script>
 </body>
 </html>

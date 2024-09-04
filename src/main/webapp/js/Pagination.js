@@ -1,30 +1,20 @@
-let link = document.getElementsByClassName("link");
-let currentValue = 1;
-
-function activeLink(event){
-    for(let l of link){
-        l.classList.remove("active");
-    }
-    event.target.classList.add("active");
-    currentValue = parseInt(event.target.getAttribute("data-value"));
+    function activeLink(event) {
+    const links = document.querySelectorAll('.pagination .link');
+    links.forEach(link => link.classList.remove('active'));
+    event.target.classList.add('active');
 }
 
-function backBtn(){
-    if(currentValue > 1){
-        currentValue--;
-        for(let l of link){
-            l.classList.remove("active");
-        }
-        link[currentValue - 1].classList.add("active");
-    }
+    function backBtn() {
+    const currentPage = parseInt(document.querySelector('.pagination .active').dataset.value);
+    if (currentPage > 1) {
+    window.location.href = `?page=${currentPage - 1}`;
+}
 }
 
-function nextBtn(){
-    if(currentValue < link.length){
-        currentValue++;
-        for(let l of link){
-            l.classList.remove("active");
-        }
-        link[currentValue - 1].classList.add("active");
-    }
+    function nextBtn() {
+    const currentPage = parseInt(document.querySelector('.pagination .active').dataset.value);
+    const totalPages = document.querySelectorAll('.pagination .link').length;
+    if (currentPage < totalPages) {
+    window.location.href = `?page=${currentPage + 1}`;
+}
 }

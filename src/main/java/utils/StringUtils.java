@@ -24,6 +24,7 @@ public class StringUtils {
     public static final String USER_OBJECT = "user";
     public static final String GENRE_OBJECT = "genre";
     public static final String FEATURED_BOOKS_OBJECT = "featuredBooks";
+    public static final String ALL_BOOKS_OBJECT = "allBooks";
 
     // SQL Queries
     public static final String GET_USER_BY_EMAIL = "SELECT * FROM user WHERE EmailAddress = ?";
@@ -52,7 +53,20 @@ public class StringUtils {
                                                     "JOIN Genre g ON b.GenreID = g.GenreID\n" +
                                                     "WHERE b.ShowOnHomePage = 1\n" +
                                                     "LIMIT 4;";
-
+    public static final String GET_ALL_BOOKS = "SELECT b.BookID, \n" +
+                                                "b.BookTitle, \n" +
+                                                "b.Description, \n" +
+                                                "b.AuthorName, \n" +
+                                                "b.PublishedDate, \n" +
+                                                "b.Price, \n" +
+                                                "b.Language, \n" +
+                                                "b.Quantity, \n" +
+                                                "b.Image, \n" +
+                                                "b.ShowOnHomePage, \n" +
+                                                "g.GenreName\n" +
+                                                "FROM Book b\n" +
+                                                "JOIN Genre g ON b.GenreID = g.GenreID\n" +
+                                                "WHERE b.ShowOnHomePage = 0\n";
     // Servlets Mapping
     public static final String SIGNUP_SERVLET = "/signup";
     public static final String LOGIN_SERVLET = "/login";

@@ -31,6 +31,8 @@ public class IndexPage extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Genre> allGenres = genreDao.getAllGenre();
         List<Book> featuredBooks = bookDao.getFeaturedBook();
+        List<Book> allBooks = bookDao.getAllBook();
+        req.setAttribute(StringUtils.ALL_BOOKS_OBJECT, allBooks);
         req.setAttribute(StringUtils.FEATURED_BOOKS_OBJECT, featuredBooks);
         req.setAttribute(StringUtils.GENRE_OBJECT, allGenres);
         req.getRequestDispatcher(StringUtils.INDEX_PAGE).forward(req, resp);
