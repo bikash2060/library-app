@@ -1,3 +1,4 @@
+<%@ page import="model.Book" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -167,6 +168,9 @@
             opacity: 0.9;
         }
     </style>
+    <%
+        Book book = (Book) request.getAttribute(StringUtils.BOOK_OBJECT);
+    %>
 </head>
 <body>
 
@@ -176,21 +180,25 @@
 <div class="book-details">
     <div class="container">
         <div class="image-container">
-            <img src="${pageContext.request.contextPath}/assets/book%20images/1984%20book.jpg" alt="Book Image">
+            <%if(book.getImage() != null){%>
+                <img src="${pageContext.request.contextPath}/assets/book%20images/<%= book.getImage()%>" alt="Book Image">
+            <%}else {%>
+                <img src="${pageContext.request.contextPath}/assets/static%20images/default-book-images.jpg" alt="Book Image">
+            <%}%>
         </div>
         <div class="details-container">
-            <h1>Book Title</h1>
-            <h2>By Author Name</h2>
-            <p class="genre">Genre: Fiction</p>
-            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultricies turpis vitae velit convallis, vel luctus nunc vestibulum. Aenean euismod lorem a urna cursus, ut facilisis risus condimentum.</p>
-            <p class="price">Price:<strong>$29.99</strong></p>
+            <h1><%= book.getBookTitle()%></h1>
+            <h2><%= book.getAuthorName()%></h2>
+            <p class="genre"><%= book.getGenreName()%></p>
+            <p class="description"><%= book.getDescription()%></p>
+            <p class="price">Price:<strong>$<%= book.getPrice()%></strong></p>
             <div class="additional-info">
-                <div><span class="language">Language:</span> English</div>
-                <div><span class="publication-date">Published Date:</span>January 1, 2023</div>
+                <div><span class="language">Language:</span> <%= book.getLanguage()%></div>
+                <div><span class="publication-date">Published Date:</span><%= book.getPublishDate()%></div>
                 <div>
                     <p class="availability">
                         <strong>Availability:</strong>
-                        <span class="status">In Stock</span>
+                        <span class="status"><%= book.getQuantity() > 0 ? "In Stock" : "Out of Stock" %></span>
                     </p>
                 </div>
             </div>
@@ -205,7 +213,9 @@
                 <span>(4.5 out of 5)</span>
             </div>
             <div class="buttons">
-                <a href="#" class="btn add-to-cart">Add to Cart</a>
+                <%if(book.getQuantity() > 0 ){%>
+                    <a href="#" class="btn add-to-cart">Add to Cart</a>
+                <%}%>
             </div>
         </div>
     </div>
