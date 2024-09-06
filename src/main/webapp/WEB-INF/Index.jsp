@@ -378,14 +378,14 @@
             margin: 0 auto;
         }
 
-        .row-1 {
+        .row {
             margin-bottom: 30px;
             display: flex;
-            align-items: flex-start;
+            flex-wrap: wrap;
             justify-content: space-between;
         }
 
-        .row-1 .col {
+        .row .col {
             flex-basis: 24%;
             max-width: 24%;
             background-color: #f7f8f9;
@@ -394,9 +394,10 @@
             border: 1px solid #ddd;
             border-radius: 8px;
             transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 20px; /* Add spacing between rows */
         }
 
-        .row-1 .col:hover {
+        .row .col:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
@@ -437,7 +438,7 @@
             margin: 10px 0;
         }
 
-        .col .price strong{
+        .col .price strong {
             color: orangered;
         }
 
@@ -457,6 +458,7 @@
             text-decoration: none;
             font-size: 0.9em;
             transition: background-color 0.3s;
+            margin-right: 10px; /* Add spacing between buttons */
         }
 
         .col .btn:hover {
@@ -470,6 +472,22 @@
         .col .btn.view-details:hover {
             background-color: #218838;
         }
+
+        /* Media Query for responsiveness */
+        @media (max-width: 768px) {
+            .row .col {
+                flex-basis: 48%; /* Two columns on medium screens */
+                max-width: 48%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .row .col {
+                flex-basis: 100%; /* One column on small screens */
+                max-width: 100%;
+            }
+        }
+
 
         /* Styling Pagination Section */
         .book-section .pagination{
@@ -838,9 +856,6 @@
     </div>
     </div>
 </div>
-
-
-
 
 <!-- Customer Testimonial Section -->
 <div class="section__container">
