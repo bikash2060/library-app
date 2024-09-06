@@ -78,7 +78,6 @@
             height: 40px;
             width: 40px;
             margin:0 10px 10px 0;
-            background-color: rgba(255,255,255,0.2);
             text-align: center;
             line-height: 40px;
             border-radius: 50%;

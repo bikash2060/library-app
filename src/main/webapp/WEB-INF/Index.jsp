@@ -734,7 +734,7 @@
                                 <%if(book.getImage() == null){%>
                                     <img src="${pageContext.request.contextPath}/assets/static images/default-book-images.jpg" alt="1984 Book" />
                                 <%}else {%>
-                                    <% System.out.println("Image found");%>
+                                    <img src="${pageContext.request.contextPath}/assets/book images/<%= book.getImage()%>" alt="1984 Book" />
                                 <% }%>
                             </div>
                         </div>
