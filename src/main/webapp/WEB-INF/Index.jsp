@@ -751,24 +751,25 @@
         <!-- Filter Section -->
         <div class="filter-section">
             <h2>Filter Books</h2>
-            <form>
+            <form action="${pageContext.request.contextPath}/home" method="get">
                 <div class="filter-group">
                     <label for="category">Category:</label>
-                    <select id="category" name="category" required>
+                    <select id="category" name="category">
                         <option value="">Select Category</option>
-                        <% if(allGenres != null && !allGenres.isEmpty()){%>
-                            <% for(Genre genre: allGenres){%>
-                                <option value="<%= genre.getGenreName()%>"><%= genre.getGenreName()%></option>
-                        <%} }%>
+                        <% if(allGenres != null && !allGenres.isEmpty()) { %>
+                        <% for(Genre genre: allGenres) { %>
+                        <option value="<%= genre.getGenreName() %>"><%= genre.getGenreName() %></option>
+                        <% } %>
+                        <% } %>
                     </select>
                 </div>
                 <div class="filter-group">
                     <label for="author">Author:</label>
-                    <input type="text" id="author" name="author" placeholder="Enter author name" required>
+                    <input type="text" id="author" name="author" placeholder="Enter author name">
                 </div>
                 <div class="filter-group">
                     <label for="date">Publication Date:</label>
-                    <input type="date" id="date" name="date" required>
+                    <input type="date" id="date" name="date">
                 </div>
                 <div class="filter-group">
                     <button type="submit">Apply Filters</button>
@@ -776,6 +777,7 @@
                 </div>
             </form>
         </div>
+
 
     </div>
 </div>
@@ -799,8 +801,8 @@
 
         <div class="button-container">
             <form action="${pageContext.request.contextPath}/home" method="get">
-                <button class="sort-button" value="low-high">Low to High</button>
-                <button class="sort-button" value="high-low">High to Low</button>
+                <button class="sort-button" type="submit" name="sortOrder" value="low-high">Low to High</button>
+                <button class="sort-button" type="submit" name="sortOrder" value="high-low">High to Low</button>
             </form>
         </div>
     </div>
