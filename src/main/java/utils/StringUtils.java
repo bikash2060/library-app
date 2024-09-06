@@ -39,49 +39,15 @@ public class StringUtils {
     public static final String UPDATE_USER = "UPDATE User SET FirstName = ?, LastName = ?, EmailAddress = ?, PhoneNumber = ?, Username = ?, Image = ? WHERE UserID = ?";
     public static final String UPDATE_USER_PASSWORD = "UPDATE user SET Password = ? WHERE UserID = ?";
     public static final String GET_ALL_GENRE = "SELECT * FROM Genre";
-    public static final String GET_FEATURED_BOOKS = "SELECT b.BookID, \n" +
-                                                    "b.BookTitle, \n" +
-                                                    "b.Description, \n" +
-                                                    "b.AuthorName, \n" +
-                                                    "b.PublishedDate, \n" +
-                                                    "b.Price, \n" +
-                                                    "b.Language, \n" +
-                                                    "b.Quantity, \n" +
-                                                    "b.Image, \n" +
-                                                    "b.ShowOnHomePage, \n" +
-                                                    "g.GenreName\n" +
-                                                    "FROM Book b\n" +
-                                                    "JOIN Genre g ON b.GenreID = g.GenreID\n" +
-                                                    "WHERE b.ShowOnHomePage = 1\n" +
-                                                    "LIMIT 4;";
-    public static final String GET_ALL_BOOKS = "SELECT b.BookID, \n" +
-                                                "b.BookTitle, \n" +
-                                                "b.Description, \n" +
-                                                "b.AuthorName, \n" +
-                                                "b.PublishedDate, \n" +
-                                                "b.Price, \n" +
-                                                "b.Language, \n" +
-                                                "b.Quantity, \n" +
-                                                "b.Image, \n" +
-                                                "b.ShowOnHomePage, \n" +
-                                                "g.GenreName\n" +
-                                                "FROM Book b\n" +
-                                                "JOIN Genre g ON b.GenreID = g.GenreID\n" +
-                                                "WHERE b.ShowOnHomePage = 0\n";
-    public static final String GET_BOOK_BY_ID = "SELECT b.BookID, \n" +
-                                                "b.BookTitle, \n" +
-                                                "b.Description, \n" +
-                                                "b.AuthorName, \n" +
-                                                "b.PublishedDate, \n" +
-                                                "b.Price, \n" +
-                                                "b.Language, \n" +
-                                                "b.Quantity, \n" +
-                                                "b.Image, \n" +
-                                                "b.ShowOnHomePage, \n" +
-                                                "g.GenreName\n" +
-                                                "FROM Book b\n" +
-                                                "JOIN Genre g ON b.GenreID = g.GenreID\n" +
-                                                "WHERE b.BookID = ?";
+    public static final String GET_FEATURED_BOOKS = "SELECT b.BookID, b.BookTitle, b.Description, b.AuthorName, b.PublishedDate, b.Price, b.Language, b.Quantity, " +
+                                                    "b.Image, b.ShowOnHomePage, g.GenreName FROM Book b JOIN Genre g ON b.GenreID = g.GenreID WHERE " +
+                                                    "b.ShowOnHomePage = 1 LIMIT 4;";
+    public static final String GET_ALL_BOOKS = "SELECT b.BookID, b.BookTitle, b.Description, b.AuthorName, b.PublishedDate, b.Price, b.Language, b.Quantity, b.Image, " +
+                                               "b.ShowOnHomePage, g.GenreName FROM Book b JOIN Genre g ON b.GenreID = g.GenreID WHERE b.ShowOnHomePage = 0;";
+
+    public static final String GET_BOOK_BY_ID = "SELECT b.BookID, b.BookTitle, b.Description, b.AuthorName, b.PublishedDate, b.Price, b.Language, b.Quantity, " +
+                                                "b.Image, b.ShowOnHomePage, g.GenreName FROM Book b JOIN Genre g ON b.GenreID = g.GenreID WHERE b.BookID = ?;";
+
     // Servlets Mapping
     public static final String SIGNUP_SERVLET = "/signup";
     public static final String LOGIN_SERVLET = "/login";
