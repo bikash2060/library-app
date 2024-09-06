@@ -798,8 +798,10 @@
         </div>
 
         <div class="button-container">
-            <button class="sort-button">Low to High</button>
-            <button class="sort-button">High to Low</button>
+            <form action="${pageContext.request.contextPath}/home" method="get">
+                <button class="sort-button" value="low-high">Low to High</button>
+                <button class="sort-button" value="high-low">High to Low</button>
+            </form>
         </div>
     </div>
 </div>
@@ -829,7 +831,7 @@
                 <h2 class="book-name"><%= book.getBookTitle() %></h2>
                 <p class="author-name">Author: <%= book.getAuthorName() %></p>
                 <p class="published-date">Published Date: <%= book.getPublishDate() %></p>
-                <p class="price">Price: <strong><%= book.getPrice() %></strong></p>
+                <p class="price">Price: <strong>$<%= book.getPrice() %></strong></p>
                 <p class="availability">
                     <strong>Availability:</strong>
                     <span class="status"><%= book.getQuantity() > 0 ? "In Stock" : "Out of Stock" %></span>
