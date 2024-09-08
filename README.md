@@ -8,9 +8,6 @@ User Capabilities:
   <li>Search for books by title, author, or genre.</li>
   <li>Update personal profile information.</li>
   <li>View invoice details for completed orders.</li>
-<br><br>
-Admin Capabilities:
-Ongoing.......
 <br>
 Note: A full description will be added after the project is complete.
 
